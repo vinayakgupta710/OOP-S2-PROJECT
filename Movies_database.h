@@ -15,7 +15,7 @@ public:
     // Default constructor 
     Movies_database(); 
     // Used as a setter function in the fetch details function of the Movies_Database class
-    Movies_database(std::string title, int year, std::string* genres, std::string studio, float ratings);
+    Movies_database(std::string title, int year, std::string* genres, std::string studio, float ratings, int id);
     //Adds a movie to the database and returns true if its successful
     bool addMovie();
     //edits a existing movie of the database and returns true if its successful
@@ -31,7 +31,7 @@ public:
     // would be instantiated in the heap
     Movies_database* fetchMovie(int ID);
     // destructor
-    ~Movies_database();
+    //~Movies_database();
 };
 
 #endif

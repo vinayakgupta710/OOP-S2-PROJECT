@@ -111,7 +111,7 @@ bool Movies_database::addMovie(){
     std::string genreForMovie;
     genreForMovie = "[";
     for(int i = 0; i < numOfGenres - 1; i++){
-        genreForMovie = genreForMovie + genres[i] + ", ";
+        genreForMovie = genreForMovie + genres[i] + "; ";
     }
     genreForMovie = genreForMovie + genres[numOfGenres - 1] + "]";
     delete[] genres;
@@ -153,8 +153,10 @@ bool Movies_database::addMovie(){
     id = id + 1;
 
     // HAVE TO ADD IT IN THE CSV FILE
-    std::ofstream movieDatabaseOut(filename, std::ios::app);
-    movieDatabaseOut << std::to_string(id) + "," + genreForMovie + "," + "en," + title + "," + std::to_string(year) + "," + std::to_string(rating) + "," + studio + ",/n";
+    std::ofstream movieDatabaseOut;
+    movieDatabaseOut.open(filename, std::ios::app);
+
+    movieDatabaseOut << "\n" << std::to_string(id) + "," + genreForMovie + "," + "en," + title + "," + std::to_string(year) + "," + std::to_string(rating) + "," + studio;
     movieDatabaseOut.close();
     return true;
 }

@@ -27,7 +27,7 @@ public:
     // fetches the details of the movie existing in the database and returns new Movies_Database object (as per its title)
     // would be a instantiated on the heap
     Movies_database* fetchMovie(std::string title);
-    // ffetches the details of the movie existing in the database and returns new Movies_Database object (as per its ID)
+    // fetches the details of the movie existing in the database and returns new Movies_Database object (as per its ID)
     // would be instantiated in the heap
     Movies_database* fetchMovie(int ID);
     // destructor

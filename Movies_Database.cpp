@@ -108,6 +108,14 @@ bool Movies_database::addMovie(){
         genres[i] = tempGenre;
     }
 
+    std::string genreForMovie;
+    genreForMovie = "[";
+    for(int i = 0; i < numOfGenres - 1; i++){
+        genreForMovie = genreForMovie + genres[i] + ", ";
+    }
+    genreForMovie = genreForMovie + genres[numOfGenres - 1] + "]";
+    delete[] genres;
+
     // getting the production studio of the movie from the user
     std::cin.ignore();
     std::cout << "Enter the studio that produced " << title << ": ";
@@ -138,7 +146,6 @@ bool Movies_database::addMovie(){
             break;
         }
     }
-    std::cout << tempLine << std::endl;
     for(int i = 0; i < commaIndexInMovie; i++){
         movieIdInStr = movieIdInStr + tempLine[i];
     }
@@ -146,10 +153,9 @@ bool Movies_database::addMovie(){
     id = id + 1;
 
     // HAVE TO ADD IT IN THE CSV FILE
-    std::ofstream movieDatabaseOut;
-    movieDatabaseOut.open(filename);
-    movieDatabaseOut << id << genres << "en" << title << year << rating << studio;
- 
+    std::ofstream movieDatabaseOut(filename, std::ios::app);
+    movieDatabaseOut << std::to_string(id) + "," + genreForMovie + "," + "en," + title + "," + std::to_string(year) + "," + std::to_string(rating) + "," + studio + ",/n";
+    movieDatabaseOut.close();
     return true;
 }
 

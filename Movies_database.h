@@ -36,8 +36,6 @@ public:
     std::string* getGenreList(); 
     std::string getStudio(); 
     float getRating(); 
-    // destructor
-    //~Movies_database();
 };
 
 #endif

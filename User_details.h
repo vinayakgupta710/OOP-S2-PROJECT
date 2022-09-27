@@ -2,6 +2,7 @@
 #define USER_DETAILS_H
 
 #include <string>
+#include "Movies_database.h"
 
 class User_details{
 private:

@@ -18,6 +18,8 @@ public:
     bool addNewUser(); 
     // asks for user's username and password and lets them enter if its correct
     bool checkCredentials();
+    // checks if the username already exists
+    bool IsUsernameUsed(std::string usernameTrial);
 };
 
 #endif

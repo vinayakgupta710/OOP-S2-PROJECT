@@ -5,10 +5,10 @@
 
 class User_details{
 private:
-    std::string username;
-    std::string password;
+    std::string username; // username of the user (unique)
+    std::string password; // password of the user
 protected:
-    int userID;
+    int userID; // user id of the user (unique)
 public:
     User_details(); // constructor for user details
     // adds a new user to the database by asking for their username and password

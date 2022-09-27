@@ -20,6 +20,7 @@ public:
     bool checkCredentials();
     // checks if the username already exists
     bool IsUsernameUsed(std::string usernameTrial);
+    void logOut();
 };
 
 #endif

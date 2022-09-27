@@ -86,19 +86,26 @@ bool User_details::checkCredentials(){
         }
 
         int j = 1;
-        std::string actualUsername  = userDetailsArr[j];
+        username  = userDetailsArr[j];
         j++;
-        std::string actualPassword = userDetailsArr[j];
+        password = userDetailsArr[j];
 
-        delete[] userDetailsArr;
+        
 
-        if(testUserName == actualUsername && testPassword == actualPassword){
+        if(testUserName == username && testPassword == password){
             loggedIn = true;
-            std::cout << "Successfully logged in for " << actualUsername << " " << std::endl;
+            userID = stoi(userDetailsArr[0]);
+            std::cout << "Successfully logged in for " << username << " " << std::endl;
         } else {
             loggedIn = false;
             std::cout << "Invalid Credentials!" << std::endl;
         }
+        delete[] userDetailsArr;
     }
+
     return loggedIn;
+}
+
+void User_details::logOut(){
+    User_details();
 }

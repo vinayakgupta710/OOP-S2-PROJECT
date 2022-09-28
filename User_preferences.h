@@ -6,7 +6,7 @@
 #include "User_details.h"
 #include "Movies_database.h"
 
-class User_preferences: public Prefernces, public User_details{
+class User_preferences: public User_details{
 protected:
     std::string* genrePref; // array of user's fav genres
     int* ratingPref; // array of user's fav ratings
@@ -25,7 +25,7 @@ public:
     // could be deleted
     std::string recommendMovie(); // recommends a random movie
     // destructor
-    ~User_preferences();
+    //~User_preferences();
 };
 
 #endif

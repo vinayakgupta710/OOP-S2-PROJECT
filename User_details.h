@@ -6,9 +6,9 @@
 
 class User_details{
 private:
-    std::string username; // username of the user (unique)
     std::string password; // password of the user
 protected:
+    std::string username; // username of the user (unique)
     int userID; // user id of the user (unique)
 public:
     User_details(); // constructor for user details

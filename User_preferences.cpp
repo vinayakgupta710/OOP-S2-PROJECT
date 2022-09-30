@@ -133,3 +133,72 @@ void User_preferences::addMovieToFav(std::string title){
     delete[] tempArr;
     userDatabaseOut.close();
 }
+
+void User_preferences::printFavMovies(){
+    const std::string filename = "user_details_cpp_dataset.csv";
+
+    // opening the file stream for userDatabase
+    std::ifstream userDatabase(filename);
+    std::string* userDetailsArr = new std::string[4];
+
+    // reading the file line by line and extracting the username which matches the arg
+    for(std::string line; getline(userDatabase, line); ){
+        // using find() function to check if the username is present in the row of the csv
+        if(line.find(username) != std::string::npos){
+            std::stringstream userDetailsInParts(line);
+            std::string separatedLine;
+            int i = 0; // iterator for user details
+            while(std::getline(userDetailsInParts, separatedLine, ',')){
+                userDetailsArr[i] = separatedLine;
+                i++;
+            }
+            break;
+        }
+    }
+    userDatabase.close();
+    
+    std::string favMovieList = userDetailsArr[3];
+    delete[] userDetailsArr;
+
+    std::string* favMovieArr;
+    int len = 1;
+    // finding the number of user's fav movies
+    for(int i = 0; i < favMovieList.length(); i++){
+        if(favMovieList[i] == ';'){
+            len++;
+        }
+    }
+
+    favMovieArr = new std::string[len];
+    int j = 0;
+
+    // building an array of fav movie titles
+    std::string tempMovie = "";
+    for(int i = 0; i < favMovieList.length(); i++){
+        if(favMovieList[i] != ';'){
+            tempMovie += favMovieList[i];
+        } else {
+            favMovieArr[j] = tempMovie;
+            tempMovie = "";
+            j++;
+        }
+    }
+    favMovieArr[len - 1] = tempMovie;
+
+    // converting the first letter of all titles to capital
+    for(int i = 0; i < len; i++){
+        favMovieArr[i][0] = toupper(favMovieArr[i][0]);
+    }
+
+    // printing all the titles
+    std::cout << "The list of " << username << "'s favourite movies includes: "; 
+    for(int i = 0; i < len; i++){
+        if(i < len - 1){
+            std::cout << favMovieArr[i] << ", ";
+        } else {
+            std::cout << favMovieArr[i] << std::endl;
+        }
+    }
+
+    delete[] favMovieArr;
+}

@@ -7,8 +7,8 @@
 int main(){
     User_preferences user1;
     user1.checkCredentials();
-    std::string title = "Zindagi na Milegi Dobara";
-    user1.addMovieToFav(title);
+
+    user1.printFavMovies();
 
     return 0;
 }

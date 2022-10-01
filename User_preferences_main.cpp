@@ -7,7 +7,7 @@
 int main(){
     User_preferences user1;
     user1.checkCredentials();
-
+    user1.addMovieToFav("Spider-Man: No Way Home");
     user1.printFavMovies();
 
     return 0;

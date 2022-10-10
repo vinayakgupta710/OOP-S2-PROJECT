@@ -9,11 +9,6 @@
 #include "Preferences.h"
 
 User_preferences::User_preferences(){
-    genrePref = NULL;
-    ratingPref = NULL;
-    releaseYearPref = NULL;
-    studioPref = NULL;
-    favMovies = NULL;
 }
 
 void User_preferences::addMovieToFav(std::string title){

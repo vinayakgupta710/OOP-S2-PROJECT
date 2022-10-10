@@ -2,17 +2,18 @@
 #define USER_PREFERENCES_H
 
 #include <string>
+#include <vector>
 #include "Preferences.h"
 #include "User_details.h"
 #include "Movies_database.h"
 
 class User_preferences: public User_details{
 protected:
-    std::string* genrePref; // array of user's fav genres
-    int* ratingPref; // array of user's fav ratings
-    int* releaseYearPref; // array of user's fav release years
-    std::string* studioPref; // array of user's fav studios
-    Movies_database* favMovies; // array of user's fav movies
+    std::vector<std::string> genrePref; // array of user's fav genres
+    std::vector<int> ratingPref; // array of user's fav ratings
+    std::vector<int> releaseYearPref; // array of user's fav release years
+    std::vector<std::string> studioPref; // array of user's fav studios
+    std::vector<Movies_database> favMovies; // array of user's fav movies
 public:
     User_preferences(); // default constructor
     bool checkMovieWorthWatching(std::string); // checks if the movie is worth watching

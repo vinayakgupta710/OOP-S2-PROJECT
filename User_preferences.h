@@ -13,7 +13,7 @@ protected:
     std::vector<int> ratingPref; // array of user's fav ratings
     std::vector<int> releaseYearPref; // array of user's fav release years
     std::vector<std::string> studioPref; // array of user's fav studios
-    std::vector<Movies_database> favMovies; // array of user's fav movies
+    std::vector<std::string> favMovies; // array of user's fav movies
 public:
     User_preferences(); // default constructor
     bool checkMovieWorthWatching(std::string); // checks if the movie is worth watching

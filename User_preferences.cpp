@@ -180,6 +180,11 @@ void User_preferences::printFavMovies(){
     }
     favMovieArr[len - 1] = tempMovie;
 
+    for(int i = 0; i < len; i++){
+        std::string title = favMovieArr[i];
+        favMovies.push_back(title);
+    }
+
     // converting the first letter of all titles to capital
     for(int i = 0; i < len; i++){
         favMovieArr[i][0] = toupper(favMovieArr[i][0]);

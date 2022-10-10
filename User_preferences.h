@@ -25,8 +25,6 @@ public:
     Movies_database compareMovies(std::string title1, std::string title2); 
     // could be deleted
     std::string recommendMovie(); // recommends a random movie
-    // destructor
-    //~User_preferences();
 };
 
 #endif

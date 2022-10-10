@@ -1,7 +1,4 @@
 id,username,password,favouriteMovies
-0,trial,dummy,the dark knight;avengers: endgame;the hunger games;Zindagi na Milegi Dobara
+0,trial,dummy,the dark knight;avengers: endgame;the hunger games
 1,trial2,dummy2,the dark knight rises;avengers: endgame;the hunger games
-2,trial3,trial3,the dark knight;the dark knight rises;avengers: endgame;Zindagi na Milegi Dobara
-3,vinayak,gupta,interstellar;the godfather;avengers: endgame;inception;zindagi na milegi dobara;dhoom 2
-4,dhakshit,1234,avengers: endgame;aquaman;the batman;spider-man: no way home
-5,testUsername,testPassword,Avengers: Endgame;Interstellar;Shutter island
+2,testUsername,testPassword,Avengers: Endgame;Interstellar;Shutter island

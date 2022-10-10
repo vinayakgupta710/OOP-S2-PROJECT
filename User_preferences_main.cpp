@@ -9,8 +9,8 @@ int main(){
      user1.checkCredentials();
      std::string title = "dhoom 2";
      user1.removeMovieFromFavourites(title);
-
      user1.printFavMovies();
+     user1.addMovieToFav(title);
 
      return 0;
 }

@@ -45,7 +45,7 @@ void Genre_preferences::updateUserPreference(){
 
     for(int i = 0; i < favMovies.size(); i++){
         std::string* tempGenres = favMovieList[i]->getGenreList();
-        std::cout << tempGenres[0] << std::endl;
+        std::cout << tempGenres[1] << std::endl;
     }
 
     delete[] favMovieList;

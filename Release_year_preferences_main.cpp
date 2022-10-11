@@ -14,7 +14,7 @@ int main(){
     user1.checkCredentials();
     user1.printFavMovies();
 
-    user1.updateUserPreference();
+    user1.calculatePreferenceScore("Avengers: endgame");
 
     return 0;
 }

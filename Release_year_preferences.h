@@ -9,10 +9,12 @@ class Release_year_preferences: public Preferences, public User_preferences{
 private:
     std::vector<int> releaseYear; // vector of release years of the fav movies of the user
     float avgReleaseYear; // average release year of the movies
+    int releaseYearScore = 0;
 public:
     Release_year_preferences(); // default constructor
     void updateUserPreference(); // adds the release year vector and calculates the average
-    void calculatePreferenceScore(); // calculates the preference score usign the algo
+    void calculatePreferenceScore(std::string title); // calculates the preference score usign the algo
+    int getScore(); // returns the release year score
 };
 
 #endif

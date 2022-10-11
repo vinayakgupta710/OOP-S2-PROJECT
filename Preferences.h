@@ -6,7 +6,7 @@
 class Preferences{
 public:
     virtual void updateUserPreference() = 0;
-    virtual void calculatePreferenceScore() = 0;
+    virtual void calculatePreferenceScore(std::string title) = 0;
 };
 
 #endif

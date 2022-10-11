@@ -9,6 +9,8 @@
 #include "Preferences.h"
 
 User_preferences::User_preferences(){
+    movie1Score = 0;
+    movie2Score = 0;
 }
 
 void User_preferences::addMovieToFav(std::string title){

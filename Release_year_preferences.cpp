@@ -11,6 +11,7 @@
 
 Release_year_preferences::Release_year_preferences(){
     avgReleaseYear = 0;
+    releaseYearScore = 0;
 }
 
 void Release_year_preferences::updateUserPreference(){
@@ -38,6 +39,19 @@ void Release_year_preferences::updateUserPreference(){
     avgReleaseYear = sum / favMovies.size();
 }
 
-void Release_year_preferences::calculatePreferenceScore(){
+void Release_year_preferences::calculatePreferenceScore(std::string title){
+    Movies_database* movie_object = new Movies_database;
 
+    movie_object = movie_object->fetchMovie(title);
+    int releaseYear = movie_object->getReleaseYear();
+
+    if(releaseYear <= (avgReleaseYear + 5) && releaseYear >= (avgReleaseYear - 5)){
+        releaseYearScore += 10;
+    } else if(releaseYear <= (avgReleaseYear + 10) && releaseYear >= (avgReleaseYear - 10)){
+        releaseYearScore += 5;
+    }
+
+    delete movie_object;
 }
+
+int Release_year_preferences::getScore(){ return releaseYearScore; }

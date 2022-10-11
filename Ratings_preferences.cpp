@@ -27,7 +27,7 @@ void Ratings_preferences::updateUserPreference(){
     }
 
     for(int i = 0; i < favMovies.size(); i++){
-        int tempRatings = favMovieList[i]->getReleaseYear();
+        float tempRatings = favMovieList[i]->getRating();
         ratings.push_back(tempRatings);
     }
 
@@ -44,8 +44,7 @@ void Ratings_preferences::calculatePreferenceScore(std::string title){
     Movies_database* movie_object = new Movies_database;
 
     movie_object = movie_object->fetchMovie(title);
-    int rating = movie_object->getRating();
-
+    float rating = movie_object->getRating();
     if(rating <= (avgRatings + 1) && rating >= (avgRatings - 1)){
         ratingsScore += 10;
     } else if(rating <= (avgRatings + 2) && rating >= (avgRatings - 2)){

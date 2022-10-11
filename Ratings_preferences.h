@@ -7,7 +7,7 @@
 
 class Ratings_preferences: public Preferences, public User_preferences{
 private:
-    std::vector<int> ratings; // vector of release years of the fav movies of the user
+    std::vector<float> ratings; // vector of release years of the fav movies of the user
     float avgRatings; // average release year of the movies
     int ratingsScore;
 public:

@@ -13,8 +13,9 @@ int main(){
     Release_year_preferences user1;
     user1.checkCredentials();
     user1.printFavMovies();
-
+    user1.updateUserPreference();
     user1.calculatePreferenceScore("Avengers: endgame");
+    
 
     return 0;
 }

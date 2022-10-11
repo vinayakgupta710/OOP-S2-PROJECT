@@ -212,7 +212,7 @@ Movies_database* Movies_database::fetchMovie(std::string title){
         std::cin >> userTempInput;
         addMovieOrContinue = userTempInput[0];
         
-        while(addMovieOrContinue != 'y' && addMovieOrContinue != 'n'){
+        while(addMovieOrContinue != 'y' || addMovieOrContinue != 'n'){
             std::cin.ignore();
             std::cout << "Only y or n character is allowed: ";
             std::cin >> userTempInput;

@@ -11,7 +11,7 @@ private:
     int studioScore;
 public:
     Studio_preferences(); // default constructor
-    void updateUserPreference(); // adds the release year vector and calculates the average
+    void updateUserPreference(std::string, std::string); // adds the release year vector and calculates the average
     void calculatePreferenceScore(std::string title); // calculates the preference score usign the algo
     int getScore(); // returns the release year score
 };

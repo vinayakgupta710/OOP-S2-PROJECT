@@ -14,7 +14,11 @@ Release_year_preferences::Release_year_preferences(){
     releaseYearScore = 0;
 }
 
-void Release_year_preferences::updateUserPreference(){
+void Release_year_preferences::updateUserPreference(std::string username, std::string password){
+    releaseYearScore = 0;
+    Release_year_preferences* tempReleaseYear = new Release_year_preferences;
+    tempReleaseYear->checkCredentials(username, password);
+    
     Movies_database** favMovieList = new Movies_database*[favMovies.size()];
     for(int i = 0; i < favMovies.size(); i++){
         favMovieList[i] = new Movies_database;

@@ -13,7 +13,11 @@ Studio_preferences::Studio_preferences(){
     studioScore = 0;
 }
 
-void Studio_preferences::updateUserPreference(){
+void Studio_preferences::updateUserPreference(std::string username, std::string password){
+    studioScore = 0;
+    Studio_preferences* tempStudio = new Studio_preferences;
+    tempStudio->checkCredentials(username, password);
+
     Movies_database** favMovieList = new Movies_database*[favMovies.size()];
     for(int i = 0; i < favMovies.size(); i++){
         favMovieList[i] = new Movies_database;

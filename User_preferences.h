@@ -13,19 +13,11 @@ protected:
     std::vector<int> releaseYearPref; // array of user's fav release years
     std::vector<std::string> studioPref; // array of user's fav studios
     std::vector<std::string> favMovies; // array of user's fav movies
-    int movie1Score;
-    int movie2Score;
 public:
     User_preferences(); // default constructor
-    bool checkMovieWorthWatching(std::string, User_preferences); // checks if the movie is worth watching
-    bool movieWorthy(int score); // checks if movie is worth watching by comparing the score
     void addMovieToFav(std::string); // adds movies to favourites
     void printFavMovies(); // prints user's fav movies
     void removeMovieFromFavourites(std::string title); // deletes movies from title
-    // compares two movies inputted by the user and recommends the better movie
-    Movies_database compareMovies(std::string title1, std::string title2); 
-    // could be deleted
-    std::string recommendMovie(); // recommends a random movie
 };
 
 #endif

@@ -56,10 +56,6 @@ void Genre_preferences::updateUserPreference(){
         }
     }
 
-    for(int i = 0; i < genres.size(); i++){
-            std::cout << genres.at(i) << " " << genreOccurences.at(i) << std::endl;
-    }
-
     delete[] favMovieList;
 }
 

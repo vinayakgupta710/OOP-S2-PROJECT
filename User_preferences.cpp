@@ -6,7 +6,10 @@
 #include "User_preferences.h"
 #include "User_details.h"
 #include "Movies_database.h"
-#include "Preferences.h"
+#include "Genre_preferences.h"
+#include "Studio_preferences.h"
+#include "Ratings_preferences.h"
+#include "Release_year_preferences.h"
 
 User_preferences::User_preferences(){
     movie1Score = 0;

@@ -17,7 +17,7 @@ protected:
     int movie2Score;
 public:
     User_preferences(); // default constructor
-    bool checkMovieWorthWatching(std::string); // checks if the movie is worth watching
+    bool checkMovieWorthWatching(std::string, User_preferences); // checks if the movie is worth watching
     bool movieWorthy(int score); // checks if movie is worth watching by comparing the score
     void addMovieToFav(std::string); // adds movies to favourites
     void printFavMovies(); // prints user's fav movies

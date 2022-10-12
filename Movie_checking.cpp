@@ -14,9 +14,7 @@ Movie_checking::Movie_checking(){
     movie2Score = 0;
 }
 
-bool Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user){
-    bool movie_worthy = false;
-    
+int Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user){
     int finalScore = 0;
     user.getFavMovies(username);
     user.Genre_preferences::updateUserPreference(username, password);
@@ -42,9 +40,25 @@ bool Movie_checking::checkMovieWorthWatching(std::string title, std::string user
     int studioScore = user.Studio_preferences::getScore();
     finalScore += studioScore;
 
-    if(finalScore > 30){
-        movie_worthy = true;
-    }
+    return finalScore;
+}
 
-    return movie_worthy;
+bool Movie_checking::movieWorthy(int score){
+    if(score > 30){
+        return true;
+    }
+    return false;
+}
+
+void Movie_checking::compareMovies(std::string title1, std::string title2, std::string username, std::string password, Movie_checking user){
+    int score1 = checkMovieWorthWatching(title1, username, password, user);
+    int score2 = checkMovieWorthWatching(title2, username, password, user);
+
+    if(score1 > score2){
+        std::cout << "You should watch " + title1 << std::endl;
+    } else if(score2 > score1){
+        std::cout << "You should watch " + title2 << std::endl;
+    } else {
+        std::cout << "You can watch either of the movie" << std::endl;
+    }
 }

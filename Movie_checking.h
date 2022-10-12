@@ -17,9 +17,9 @@ private:
     int movie2Score;
 public:
     Movie_checking(); // default constructor
-    bool checkMovieWorthWatching(std::string, std::string, std::string, Movie_checking); // checks if the movie is worth watching
+    int checkMovieWorthWatching(std::string, std::string, std::string, Movie_checking); // checks if the movie is worth watching
     bool movieWorthy(int score); // checks if movie is worth watching by comparing the score
-    Movies_database compareMovies(std::string title1, std::string title2); 
+    void compareMovies(std::string title1, std::string title2, std::string, std::string, Movie_checking); 
 };
 
 #endif

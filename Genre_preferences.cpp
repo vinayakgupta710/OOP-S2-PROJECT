@@ -10,19 +10,19 @@
 #include "Genre_preferences.h"
 
 Genre_preferences::Genre_preferences(){
-    genres.push_back("action");
-    genres.push_back("adventure");
-    genres.push_back("animation");
-    genres.push_back("horror");
-    genres.push_back("comedy");
-    genres.push_back("crime");
-    genres.push_back("drama");
-    genres.push_back("fantasy");
-    genres.push_back("romance");
-    genres.push_back("thriller");
-    genres.push_back("mystery");
-    genres.push_back("science fiction");
-    genres.push_back("documentary");
+    genres.push_back("Action");
+    genres.push_back("Adventure");
+    genres.push_back("Animation");
+    genres.push_back("Horror");
+    genres.push_back("Comedy");
+    genres.push_back("Crime");
+    genres.push_back("Drama");
+    genres.push_back("Fantasy");
+    genres.push_back("Romance");
+    genres.push_back("Thriller");
+    genres.push_back("Mystery");
+    genres.push_back("ScienceFiction");
+    genres.push_back("Documentary");
 
     for(int i = 0; i < genres.size(); i++){
         genreOccurences.push_back(0);
@@ -44,14 +44,27 @@ void Genre_preferences::updateUserPreference(){
     }
 
     for(int i = 0; i < favMovies.size(); i++){
+        int lenOfTempGenre = favMovieList[i]->getNumOfGenres();
         std::string* tempGenres = favMovieList[i]->getGenreList();
-        std::cout << tempGenres[1] << std::endl;
+
+        for(int j = 0; j < lenOfTempGenre; j++){
+            for(int k = 0; k < genres.size(); k++){
+                if(tempGenres[j] == genres.at(k)){
+                    genreOccurences.at(k) += 1;
+                }
+            }
+        }
+    }
+
+    for(int i = 0; i < genres.size(); i++){
+            std::cout << genres.at(i) << " " << genreOccurences.at(i) << std::endl;
     }
 
     delete[] favMovieList;
 }
 
 void Genre_preferences::calculatePreferenceScore(std::string title){
+    
 }
 
 int Genre_preferences::getScore(){ return genresScore; }

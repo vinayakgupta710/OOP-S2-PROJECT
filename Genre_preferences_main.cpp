@@ -15,7 +15,7 @@ int main(){
     user1.printFavMovies();
     
     user1.updateUserPreference();
-    //user1.calculatePreferenceScore("Avengers: endgame");
+    user1.calculatePreferenceScore("Avengers: endgame");
 
     std::cout << user1.getScore() << std::endl;
     

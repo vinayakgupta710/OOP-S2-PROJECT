@@ -281,10 +281,10 @@ Movies_database* Movies_database::fetchMovie(std::string title){
             tempGenre = new std::string[lenForTempGenre]; // creating a dynamic array of genres
             int iteratorForTempGenre = 0;
             while(movieDetailsArr[j] != "en"){
-                //std::cout << movieDetailsArr[j] << std::endl;
+
                 std::string genre = "";
                 for(int i = 0; i < movieDetailsArr[j].length(); i++){
-                    if(movieDetailsArr[j][i] != '[' && movieDetailsArr[j][i] != ']' && movieDetailsArr[j][i] != ' ' && movieDetailsArr[j][i] != '"' && movieDetailsArr[j][i] != '\'' && movieDetailsArr[j][i] == ';'){
+                    if(movieDetailsArr[j][i] != '[' && movieDetailsArr[j][i] != ']' && movieDetailsArr[j][i] != ' ' && movieDetailsArr[j][i] != '"' && movieDetailsArr[j][i] != '\'' && movieDetailsArr[j][i] != ';'){
                         genre = genre + movieDetailsArr[j][i];
                     }
                 }

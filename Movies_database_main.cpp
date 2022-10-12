@@ -4,8 +4,12 @@
 
 
 int main(){
-    std::string genre = "Comedy";
-    Movies_database movie("title", 4, 2020, &genre, "Disney", 9.9, 11);
-    movie.fetchMovie("ghfhh");
+    Movies_database* movie = new Movies_database;
+    movie = movie->fetchMovie("Avengers: endgame");
+    std::string* genres = movie->getGenreList();
+    for(int i = 0; i < movie->getNumOfGenres(); i++){
+        std::cout << genres[i] << std::endl;
+    }
+
     return 0;
 }

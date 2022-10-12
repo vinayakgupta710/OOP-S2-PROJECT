@@ -22,6 +22,9 @@ public:
     bool IsUsernameUsed(std::string usernameTrial);
     //checking credentials for the username and password
     bool checkCredentials(std::string testUserName, std::string testPassword);
+    //getter
+    std::string getUsername();
+    std::string getPassword();
     void logOut();
 };
 

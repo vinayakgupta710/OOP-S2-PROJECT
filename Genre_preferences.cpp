@@ -31,7 +31,11 @@ Genre_preferences::Genre_preferences(){
     genresScore = 0;
 }
 
-void Genre_preferences::updateUserPreference(){
+void Genre_preferences::updateUserPreference(std::string username, std::string password){
+    genresScore = 0;
+    Genre_preferences* tempGenre = new Genre_preferences;
+    tempGenre->checkCredentials(username, password);
+
     Movies_database** favMovieList = new Movies_database*[favMovies.size()];
     for(int i = 0; i < favMovies.size(); i++){
         favMovieList[i] = new Movies_database;
@@ -63,8 +67,6 @@ void Genre_preferences::calculatePreferenceScore(std::string title){
     for(int i = 0; i < genreOccurences.size(); i++){
             genresScore += genreOccurences.at(i);
     }
-
-    genresScore += (genresScore / 2);
 }
 
 int Genre_preferences::getScore(){ return genresScore; }

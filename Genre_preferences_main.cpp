@@ -13,9 +13,16 @@ int main(){
     Genre_preferences user1;
     user1.checkCredentials();
     user1.printFavMovies();
-    
-    user1.updateUserPreference();
+    std::string username = user1.getUsername();
+    std::string password = user1.getPassword();
+
+    user1.updateUserPreference(username, password);
     user1.calculatePreferenceScore("Avengers: endgame");
+
+    std::cout << user1.getScore() << std::endl;
+
+    user1.updateUserPreference(username, password);
+    user1.calculatePreferenceScore("Interstellar");
 
     std::cout << user1.getScore() << std::endl;
     

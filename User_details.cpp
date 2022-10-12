@@ -110,10 +110,6 @@ bool User_details::checkCredentials(){
     return loggedIn;
 }
 
-void User_details::logOut(){
-    User_details();
-}
-
 bool User_details::addNewUser(){
     const std::string filename = "user_details_cpp_dataset.csv";
     bool userAdded = false;
@@ -197,46 +193,17 @@ bool User_details::addNewUser(){
 // checks the user if the username and password is correct. returns true/false
 bool User_details::checkCredentials(std::string testUserName, std::string testPassword){
     bool loggedIn = false;
-    const std::string filename = "user_details_cpp_dataset.csv";
-    std::string* userDetailsArr = new std::string[4];
 
-    if (IsUsernameUsed(testUserName)) {
-
-        // opening the file stream for userDatabase
-        std::ifstream userDatabase(filename);
-
-        // reading the file line by line and extracting the username which matches the arg
-        for(std::string line; getline(userDatabase, line); ){
-            // using find() function to check if the title is present in the row of the csv
-            if(line.find(testUserName) != std::string::npos){
-                std::stringstream userDetailsInParts(line);
-                std::string separatedLine;
-                int i = 0; // iterator for user details
-                while(std::getline(userDetailsInParts, separatedLine, ',')){
-                    userDetailsArr[i] = separatedLine;
-                    i++;
-                }
-                break;
-            }
-        }
-
-        int j = 1;
-        username  = userDetailsArr[j];
-        j++;
-        password = userDetailsArr[j];
-
-        
-
-        if(testUserName == username && testPassword == password){
-            loggedIn = true;
-            userID = stoi(userDetailsArr[0]);
-
-        }
-        delete[] userDetailsArr;
+    if(testUserName == username && testPassword == password){
+        username = testUserName;
+        password = testPassword;
     }
 
     return loggedIn;
 }
+
+std::string User_details::getUsername() { return username; }
+std::string User_details::getPassword() { return password; }
 
 void User_details::logOut(){
     User_details();

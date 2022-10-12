@@ -5,9 +5,8 @@
 #include "Movies_database.h"
 
 class User_details{
-private:
-    std::string password; // password of the user
 protected:
+    std::string password;
     std::string username; // username of the user (unique)
     int userID; // user id of the user (unique)
 public:
@@ -21,6 +20,8 @@ public:
     bool checkCredentials();
     // checks if the username already exists
     bool IsUsernameUsed(std::string usernameTrial);
+    //checking credentials for the username and password
+    bool checkCredentials(std::string testUserName, std::string testPassword);
     void logOut();
 };
 

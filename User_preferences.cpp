@@ -11,10 +11,7 @@
 #include "Ratings_preferences.h"
 #include "Release_year_preferences.h"
 
-User_preferences::User_preferences(){
-    movie1Score = 0;
-    movie2Score = 0;
-}
+User_preferences::User_preferences(){}
 
 void User_preferences::addMovieToFav(std::string title){
     std::string existingFavMovies;

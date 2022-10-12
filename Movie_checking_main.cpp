@@ -12,8 +12,10 @@
 
 int main(){
     Movie_checking user1;
-
-    user1.checkMovieWorthWatching("Avengers: endgame", user1);
+    user1.checkCredentials();
+    std::string username = user1.getUsername();
+    std::string password = user1.getPassword();
+    user1.checkMovieWorthWatching("Avengers: endgame", username, password, user1);
     
     return 0;
 }

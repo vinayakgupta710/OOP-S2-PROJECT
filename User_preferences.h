@@ -6,7 +6,7 @@
 #include "User_details.h"
 #include "Movies_database.h"
 
-class User_preferences: public User_details{
+class User_preferences: public virtual User_details{
 protected:
     std::vector<std::string> genrePref; // array of user's fav genres
     std::vector<int> ratingPref; // array of user's fav ratings
@@ -17,6 +17,7 @@ public:
     User_preferences(); // default constructor
     void addMovieToFav(std::string); // adds movies to favourites
     void printFavMovies(); // prints user's fav movies
+    void getFavMovies(std::string); // prints user's fav movies
     void removeMovieFromFavourites(std::string title); // deletes movies from title
 };
 

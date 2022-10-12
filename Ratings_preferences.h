@@ -5,7 +5,7 @@
 #include "User_preferences.h"
 #include <vector>
 
-class Ratings_preferences: public Preferences, public User_preferences{
+class Ratings_preferences: public Preferences, public virtual User_preferences{
 private:
     std::vector<float> ratings; // vector of release years of the fav movies of the user
     float avgRatings; // average release year of the movies

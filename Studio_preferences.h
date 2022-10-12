@@ -5,7 +5,7 @@
 #include "User_preferences.h"
 #include <vector>
 
-class Studio_preferences: public Preferences, public User_preferences{
+class Studio_preferences: public Preferences, public virtual User_preferences{
 private:
     std::vector<std::string> studios; // vector of release years of the fav movies of the user
     int studioScore;

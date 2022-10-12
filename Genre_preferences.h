@@ -5,7 +5,7 @@
 #include "User_preferences.h"
 #include <vector>
 
-class Genre_preferences: public Preferences, public User_preferences{
+class Genre_preferences: public Preferences, public virtual User_preferences{
 private:
     std::vector<std::string> genres; // vector of release years of the fav movies of the user
     std::vector<int> genreOccurences; // num of genre occurences

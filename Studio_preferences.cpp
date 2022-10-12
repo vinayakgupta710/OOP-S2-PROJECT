@@ -51,7 +51,7 @@ void Studio_preferences::calculatePreferenceScore(std::string title){
         }
     }
 
-    studioScore += (count * 2);
+    studioScore += count;
 
     delete movie_object;
 }

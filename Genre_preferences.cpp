@@ -64,7 +64,11 @@ void Genre_preferences::updateUserPreference(){
 }
 
 void Genre_preferences::calculatePreferenceScore(std::string title){
-    
+    for(int i = 0; i < genreOccurences.size(); i++){
+            genresScore += genreOccurences.at(i);
+    }
+
+    genresScore += (genresScore / 2);
 }
 
 int Genre_preferences::getScore(){ return genresScore; }

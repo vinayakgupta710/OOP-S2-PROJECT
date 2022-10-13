@@ -5,11 +5,13 @@
 #include "User_preferences.h"
 #include <vector>
 
+/* This class will help calculate a score for the movie on the basis of its genre */
+
 class Genre_preferences: public Preferences, public virtual User_preferences{
 private:
     std::vector<std::string> genres; // vector of release years of the fav movies of the user
     std::vector<int> genreOccurences; // num of genre occurences
-    int genresScore;
+    int genresScore; // score for the movie on the basis of the genre
 public:
     Genre_preferences(); // default constructor
     void updateUserPreference(std::string, std::string); // adds the release year vector and calculates the average

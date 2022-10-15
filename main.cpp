@@ -70,6 +70,7 @@ int main(){
     std::cout << "Please choose one of the following options: " << std::endl;
     std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
     std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
+    std::cout << "Enter 'print' to print your list of favourite movies" << std::endl;
     std::cout << "Enter 'compare' if you wanna compare two movies and check which one is better to watch" << std::endl;
     std::cout << "Enter 'check' if you wanna check if a movie is worth watching" << std::endl;
     std::cout << "Enter 'logout' if you wanna log out of the system" << std::endl;
@@ -77,7 +78,7 @@ int main(){
     std::cout << "Enter input here: ";
     std::cin >> userInput;
 
-    while(userInput != "logout"){
+    while(true){
         if(userInput == "remove"){
             std::string title;
             std::cout << std::endl;
@@ -145,17 +146,25 @@ int main(){
             std::cout << "Please choose one of the following options: " << std::endl;
             std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
             std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
+            std::cout << "Enter 'print' to print your list of favourite movies" << std::endl;
             std::cout << "Enter 'check' if you wanna check if a movie is worth watching" << std::endl;
             std::cout << "Enter 'compare' if you wanna compare two movies and check which one is better to watch" << std::endl;
             std::cout << "Enter 'logout' if you wanna log out of the system" << std::endl;
             std::cout << "Enter 'help' to display these options again" << std::endl;
             std::cout << "Enter input here: ";
             std::cin >> userInput;
+        } else if(userInput == "print"){
+            std::cout << std::endl;
+            user.printFavMovies();
+            std::cout << std::endl;
+            std::cout << "Choose from the options again: ";
+            std::cin >> userInput;
         } else {
             std::cout << "Invalid input!" << std::endl << std::endl;
             std::cout << "Please choose one of the following options: " << std::endl;
             std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
             std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
+            std::cout << "Enter 'print' to print your list of favourite movies" << std::endl;
             std::cout << "Enter 'check' if you wanna check if a movie is worth watching" << std::endl;
             std::cout << "Enter 'compare' if you wanna compare two movies and check which one is better to watch" << std::endl;
             std::cout << "Enter 'logout' if you wanna log out of the system" << std::endl;

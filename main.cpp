@@ -56,9 +56,5 @@ int main(){
     user.printFavMovies();
     std::cout << std::endl;
 
-
-
-
-
     return 0;
 }

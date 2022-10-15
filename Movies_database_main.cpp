@@ -5,11 +5,9 @@
 
 int main(){
     Movies_database* movie = new Movies_database;
-    movie = movie->fetchMovie("Avengers: endgame");
-    std::string* genres = movie->getGenreList();
-    for(int i = 0; i < movie->getNumOfGenres(); i++){
-        std::cout << genres[i] << std::endl;
-    }
+    movie = movie->fetchMovie("Spider-Man: No Way Home");
+    std::string name = movie->getTitle();
+    std::cout << name << std::endl;
 
     return 0;
 }

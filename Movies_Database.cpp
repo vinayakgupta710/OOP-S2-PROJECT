@@ -207,14 +207,13 @@ Movies_database* Movies_database::fetchMovie(std::string title){
     if(!isMovieInDatabase(title)){
         std::cout << "Movie does not exist in the database." << std::endl;
         std::cout << "Do you wish to add it in the database or would like to find another movie?" << std::endl;
-        std::cout << "Type 'y' if you want to add it or 'n' if you would like to find another movie: ";
-        std::string userTempInput;
+        std::cout << "Type 'y' if you want to add it or 'n' if you would like to find another movie: "; 
         char addMovieOrContinue;
+        std::string userTempInput;
         std::cin >> userTempInput;
         addMovieOrContinue = userTempInput[0];
         
-        while(addMovieOrContinue != 'y' || addMovieOrContinue != 'n'){
-            std::cin.ignore();
+        while(addMovieOrContinue != 'y' || addMovieOrContinue != 'n' || addMovieOrContinue != 'N' || addMovieOrContinue != 'Y'){
             std::cout << "Only y or n character is allowed: ";
             std::cin >> userTempInput;
             addMovieOrContinue = userTempInput[0];

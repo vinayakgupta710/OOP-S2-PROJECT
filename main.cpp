@@ -20,7 +20,7 @@ int main(){
     // getting the input from the user about whether they want to log in or sign in 
     std::string userInput;
     std::cout << "Enter 'login' if you are an existing user or enter 'signin' if you are a new user:" << std::endl;
-    std::cout << "Enter 'logout' at any point if you wanna logout of the system: ";
+    std::cout << "Enter 'logout' if you wanna logout of the system: ";
     std::cin >> userInput;
 
     // creating a new user 
@@ -55,6 +55,14 @@ int main(){
     std::cout << std::endl;
     user.printFavMovies();
     std::cout << std::endl;
+
+    std::cout << "Please choose one of the following options: " << std::endl;
+    std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
+    std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
+    std::cout << "Enter 'check' if you wanna check if a movie is worth watching" << std::endl;
+    std::cout << "Enter 'compare' if you wanna compare two movies and check which one is better to watch" << std::endl;
+
+    
 
     return 0;
 }

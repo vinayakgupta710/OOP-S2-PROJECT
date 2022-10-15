@@ -51,7 +51,7 @@ bool Movies_database::isMovieInDatabase(std::string title){
     // capitalising the first letter of every word of the movie
     title[0] = toupper(title[0]);
     for(int i = 1; i < title.length(); i++){
-        if(title[i - 1] == ' '){
+        if(title[i - 1] == ' ' || title[i - 1] == '-' || title[i - 1] == ':'){
             title[i] = toupper(title[i]);
         } else {
             title[i] = tolower(title[i]);
@@ -97,6 +97,7 @@ bool Movies_database::addMovie(){
 
         // change this so that the program does not quit
         addedMovies = false;
+        return addedMovies;
     }
 
     // getting the release year of the movie from the user

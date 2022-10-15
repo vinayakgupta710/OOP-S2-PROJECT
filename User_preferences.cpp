@@ -104,7 +104,8 @@ void User_preferences::addMovieToFav(std::string title){
     
     Movies_database* newMovie = new Movies_database;
     newMovie = newMovie->fetchMovie(titleCopy);
-
+    titleCopy = newMovie->getTitle();
+    
     for(int i = 0; i < len; i++){
         if(tempArr[i] == userDetailsInStr){
             userDetailsInStr = userDetailsInStr + ";" + titleCopy;

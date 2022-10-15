@@ -65,8 +65,6 @@ int main(){
     user.printFavMovies();
     std::cout << std::endl;
 
-
-    std::cout << "Invalid input!" << std::endl << std::endl;
     std::cout << "Please choose one of the following options: " << std::endl;
     std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
     std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
@@ -160,7 +158,7 @@ int main(){
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
-            
+
         } else {
             std::cout << "Invalid input!" << std::endl << std::endl;
             std::cout << "Please choose one of the following options: " << std::endl;

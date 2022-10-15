@@ -64,8 +64,9 @@ void User_preferences::addMovieToFav(std::string title){
     int len = 0;
     // getting the length of the total file
     std::ifstream movieDatabaseTemp(filename);
-    std::string tempLine;
+    std::string tempLine = "";
     while(getline(movieDatabaseTemp, tempLine)){}
+    
     // finding the first word from the tempLine
     std::string userIdInStr;
     int commaIndexInUser = 0;
@@ -75,11 +76,13 @@ void User_preferences::addMovieToFav(std::string title){
             break;
         }
     }
+    // getting the total length of the file
     for(int i = 0; i < commaIndexInUser; i++){
         userIdInStr = userIdInStr + tempLine[i];
     }
     len = stoi(userIdInStr);
     len += 2;
+
     movieDatabaseTemp.close();
 
     std::string *tempArr = new std::string[len];
@@ -90,7 +93,7 @@ void User_preferences::addMovieToFav(std::string title){
             i++;
         }
     }
-
+    
     std::string userDetailsInStr = userDetailsArr[0];
 
     for(int i = 1; i < 3; i++){
@@ -99,6 +102,10 @@ void User_preferences::addMovieToFav(std::string title){
     userDetailsInStr = userDetailsInStr +  "," + userDetailsArr[3];
     userDetailsArr[3] = userDetailedLine;
     
+    Movies_database* newMovie = new Movies_database;
+    newMovie = newMovie->fetchMovie(titleCopy);
+    titleCopy = newMovie->getTitle();
+
     for(int i = 0; i < len; i++){
         if(tempArr[i] == userDetailsInStr){
             userDetailsInStr = userDetailsInStr + ";" + titleCopy;
@@ -353,6 +360,8 @@ void User_preferences::removeMovieFromFavourites(std::string title){
     }
     delete[] tempArr;
     userDatabaseOut.close();
+
+    return;
 }
 
 void User_preferences::getFavMovies(std::string username){

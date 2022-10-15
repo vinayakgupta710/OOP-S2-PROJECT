@@ -25,12 +25,16 @@ int main(){
 
     // creating a new user 
     Movie_checking user;
+    std::string username;
+    std::string password;
 
-    while(userInput != "exit" || userInput != "login" || userInput != "signin"){
+    while(userInput != "logout" || userInput != "login" || userInput != "signin"){
         // callign the check credentials functions if the user enters login
         if(userInput == "login"){
             std::cout << std::endl;
             user.checkCredentials();
+            username = user.getUsername();
+            password = user.getPassword();
             break;
         } else if(userInput == "signin"){ // calling addnewuser function if user enters signin
             std::cout << std::endl;
@@ -38,6 +42,8 @@ int main(){
             std::cout << "New user successfully created!" << std::endl;
             std::cout << "You need to enter the details again to successfully login." << std::endl;
             user.checkCredentials();
+            username = user.getUsername();
+            password = user.getPassword();
             break;
         } else if(userInput == "logout"){
             std::cout << "System exited!" << std::endl;
@@ -56,13 +62,29 @@ int main(){
     user.printFavMovies();
     std::cout << std::endl;
 
+
     std::cout << "Please choose one of the following options: " << std::endl;
     std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
     std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
     std::cout << "Enter 'check' if you wanna check if a movie is worth watching" << std::endl;
     std::cout << "Enter 'compare' if you wanna compare two movies and check which one is better to watch" << std::endl;
+    std::cout << "Enter 'logout' if you wanna log out of the system" << std::endl;;
+    std::cout << "Enter input here: ";
+    std::cin >> userInput;
 
-    
+    while(userInput != "add" || userInput != "remove" || userInput != "check" || userInput != "compare" || userInput != "logout"){
+        if(userInput == "remove"){
+            std::string title;
+            std::cout << std::endl;
+            std::cout << "Enter the title of the movie that you wanna remove from your favourites: ";
+            std::cin >> title;
+            user.checkCredentials(username, password);
+            user.removeMovieFromFavourites(title);
+            std::cout << std::endl;
+            user.printFavMovies();
+            break;
+        }
+    }
 
     return 0;
 }

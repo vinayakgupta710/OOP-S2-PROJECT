@@ -6,10 +6,8 @@
 int main(){
      User_preferences user1;
      user1.checkCredentials();
-     std::string title = "dhoom 2";
-     user1.removeMovieFromFavourites(title);
+     user1.removeMovieFromFavourites("Avengers: endgame");
      user1.printFavMovies();
-     user1.addMovieToFav(title);
-
+     user1.addMovieToFav("Avengers: endgame");
      return 0;
 }

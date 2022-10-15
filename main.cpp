@@ -1,6 +1,9 @@
 #include <iostream>
 #include <string>
-#include "Movie_checking.h"
+#include <iostream>
+#include "User_preferences.h"
+#include "User_details.h"
+#include "Movies_database.h"
 #include "User_preferences.h"
 #include "User_details.h"
 #include "Movies_database.h"
@@ -77,9 +80,21 @@ int main(){
             std::string title;
             std::cout << std::endl;
             std::cout << "Enter the title of the movie that you wanna remove from your favourites: ";
-            std::cin >> title;
+            std::cin.ignore();
+            getline(std::cin, title);
             user.checkCredentials(username, password);
             user.removeMovieFromFavourites(title);
+            std::cout << std::endl;
+            user.printFavMovies();
+            break;
+        } else if(userInput == "add"){
+            std::string title;
+            std::cout << std::endl;
+            std::cout << "Enter the title of the movie that you wanna add to your favourites: ";
+            std::cin.ignore();
+            getline(std::cin, title);
+            user.checkCredentials(username, password);
+            user.addMovieToFav(title);
             std::cout << std::endl;
             user.printFavMovies();
             break;

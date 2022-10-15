@@ -20,7 +20,7 @@ int main(){
     // getting the input from the user about whether they want to log in or sign in 
     std::string userInput;
     std::cout << "Enter 'login' if you are an existing user or enter 'signin' if you are a new user:" << std::endl;
-    std::cout << "Enter 'exit' at any point if you wanna exit the system: ";
+    std::cout << "Enter 'logout' at any point if you wanna logout of the system: ";
     std::cin >> userInput;
 
     // creating a new user 
@@ -35,9 +35,13 @@ int main(){
         } else if(userInput == "signin"){ // calling addnewuser function if user enters signin
             std::cout << std::endl;
             user.addNewUser();
+            std::cout << "New user successfully created!" << std::endl;
+            std::cout << "You need to enter the details again to successfully login." << std::endl;
+            user.checkCredentials();
             break;
-        } else if(userInput == "exit"){
+        } else if(userInput == "logout"){
             std::cout << "System exited!" << std::endl;
+            user.logOut();
             return 0;
         } else { // invalid input asking to write again
             std::cout << std::endl;
@@ -51,6 +55,8 @@ int main(){
     std::cout << std::endl;
     user.printFavMovies();
     std::cout << std::endl;
+
+
 
 
 

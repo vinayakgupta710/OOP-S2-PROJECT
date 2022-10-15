@@ -1,4 +1,5 @@
 id,username,password,favouriteMovies
 0,trial,dummy,the dark knight;avengers: endgame;the hunger games
 1,trial2,dummy2,the dark knight rises;avengers: endgame;the hunger games
-2,testUsername,testPassword,shutter island;interstellar;Avengers: Endgame
+2,testUsername,testPassword,shutter island;interstellar;avengers: endgame
+3,vinayak,7.10,spider-man: no way home;the dark knight;zootopia

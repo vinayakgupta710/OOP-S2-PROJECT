@@ -87,12 +87,11 @@ int main(){
             getline(std::cin, title);
             user.checkCredentials(username, password);
             user.removeMovieFromFavourites(title);
-            std::cout << std::endl;
             user.printFavMovies();
-
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
+
         } else if(userInput == "add"){
             std::string title;
             std::cout << std::endl;
@@ -101,11 +100,11 @@ int main(){
             getline(std::cin, title);
             user.checkCredentials(username, password);
             user.addMovieToFav(title);
-            std::cout << std::endl;
             user.printFavMovies();
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
+
         } else if(userInput == "check"){
             std::string title;
             std::cout << std::endl;
@@ -119,10 +118,10 @@ int main(){
             } else {
                 std::cout << "You should not watch " << title << std::endl;
             }
-           
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
+
         } else if(userInput == "compare"){
             std::string title1;
             std::string title2;
@@ -133,14 +132,15 @@ int main(){
             std::cout << "Enter the title for the second movie: ";
             getline(std::cin, title2);
             user.compareMovies(title1, title2, username, password, user);
-            
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
+
         } else if(userInput == "logout"){
             std::cout << "Logged out for " << username << std::endl;
             user.logOut();
             return 0;
+
         } else if(userInput == "help"){
             std::cout << "Invalid input!" << std::endl << std::endl;
             std::cout << "Please choose one of the following options: " << std::endl;
@@ -153,12 +153,14 @@ int main(){
             std::cout << "Enter 'help' to display these options again" << std::endl;
             std::cout << "Enter input here: ";
             std::cin >> userInput;
+
         } else if(userInput == "print"){
             std::cout << std::endl;
             user.printFavMovies();
             std::cout << std::endl;
             std::cout << "Choose from the options again: ";
             std::cin >> userInput;
+            
         } else {
             std::cout << "Invalid input!" << std::endl << std::endl;
             std::cout << "Please choose one of the following options: " << std::endl;

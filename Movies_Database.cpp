@@ -205,6 +205,7 @@ Movies_database* Movies_database::fetchMovie(std::string title){
     Movies_database* movieDetails = new Movies_database;
     // if movie is not in database, give the option to add it or search for new movie
     if(!isMovieInDatabase(title)){
+        std::cout << std::endl;
         std::cout << "Movie does not exist in the database." << std::endl;
         std::cout << "Do you wish to add it in the database or would like to find another movie?" << std::endl;
         std::cout << "Type 'y' if you want to add it or 'n' if you would like to find another movie: "; 
@@ -212,18 +213,23 @@ Movies_database* Movies_database::fetchMovie(std::string title){
         std::string userTempInput;
         std::cin >> userTempInput;
         addMovieOrContinue = userTempInput[0];
+        addMovieOrContinue = tolower(addMovieOrContinue);
         
-        while(addMovieOrContinue != 'y' || addMovieOrContinue != 'n' || addMovieOrContinue != 'N' || addMovieOrContinue != 'Y'){
+        while(addMovieOrContinue != 'y' && addMovieOrContinue != 'n'){
+            std::cout << std::endl;
             std::cout << "Only y or n character is allowed: ";
             std::cin >> userTempInput;
             addMovieOrContinue = userTempInput[0];
+            addMovieOrContinue = tolower(addMovieOrContinue);
         }
 
         if(addMovieOrContinue == 'y'){
             std::cin.ignore();
+            std::cout << std::endl;
             addMovie();
         } else {
             std::string newTitle;
+            std::cout << std::endl;
             std::cout << "Enter the new title of the movie that you want to fetch information of: ";
             std::cin.ignore();
             getline(std::cin, newTitle);

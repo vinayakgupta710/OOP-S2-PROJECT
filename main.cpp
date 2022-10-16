@@ -126,6 +126,7 @@ int main(){
                     std::cout << *(genres + i) << std::endl;
                 }
             }
+            delete tempMovie;
 
             std::cout << std::endl;
             std::cout << "Choose from the options again (type 'help' to view the options): ";

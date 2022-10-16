@@ -66,6 +66,7 @@ int main(){
     std::cout << std::endl;
 
     std::cout << "Please choose one of the following options: " << std::endl;
+    std::cout << "Enter 'info' to display the information about the movie" << std::endl;
     std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
     std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;
     std::cout << "Enter 'print' to print your list of favourite movies" << std::endl;
@@ -87,7 +88,7 @@ int main(){
             user.removeMovieFromFavourites(title);
             user.printFavMovies();
             std::cout << std::endl;
-            std::cout << "Choose from the options again: ";
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
             std::cin >> userInput;
 
         } else if(userInput == "add"){
@@ -100,7 +101,34 @@ int main(){
             user.addMovieToFav(title);
             user.printFavMovies();
             std::cout << std::endl;
-            std::cout << "Choose from the options again: ";
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
+            std::cin >> userInput;
+
+        } else if(userInput == "info"){
+            Movies_database* tempMovie = new Movies_database;
+            std::string title;
+            std::cout << std::endl;
+            std::cout << "Enter the title of the movie that you wanna find info about: ";
+            std::cin.ignore();
+            getline(std::cin, title);
+
+            tempMovie = tempMovie->fetchMovie(title);
+            std::cout << "Title of the movie: " << tempMovie->getTitle() << std::endl;
+            std::cout << "Release year of the movie: " << tempMovie->getReleaseYear() << std::endl;
+            std::cout << "Rating of the movie (as per TMDb): " << tempMovie->getRating() << std::endl;
+            std::cout << "Production stduio of the movie: " << tempMovie->getStudio() << std::endl;
+            std::cout << "Genres of the movie: ";
+            std::string *genres = tempMovie->getGenreList();
+            for(int i = 0; i < tempMovie->getNumOfGenres(); i++){
+                if(i < tempMovie->getNumOfGenres() - 1){
+                    std::cout << *(genres + i) << ", ";
+                } else {
+                    std::cout << *(genres + i) << std::endl;
+                }
+            }
+
+            std::cout << std::endl;
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
             std::cin >> userInput;
 
         } else if(userInput == "check"){
@@ -117,7 +145,7 @@ int main(){
                 std::cout << "You should not watch " << title << std::endl;
             }
             std::cout << std::endl;
-            std::cout << "Choose from the options again: ";
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
             std::cin >> userInput;
 
         } else if(userInput == "compare"){
@@ -131,7 +159,7 @@ int main(){
             getline(std::cin, title2);
             user.compareMovies(title1, title2, username, password, user);
             std::cout << std::endl;
-            std::cout << "Choose from the options again: ";
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
             std::cin >> userInput;
 
         } else if(userInput == "logout"){
@@ -156,7 +184,7 @@ int main(){
             std::cout << std::endl;
             user.printFavMovies();
             std::cout << std::endl;
-            std::cout << "Choose from the options again: ";
+            std::cout << "Choose from the options again (type 'help' to view the options): ";
             std::cin >> userInput;
 
         } else {

@@ -251,6 +251,7 @@ Movies_database* Movies_database::fetchMovie(std::string title){
             std::cin.ignore();
             std::cout << std::endl;
             addMovie();
+            return fetchMovie(title);
         } else { // calling the same funciton with a different title if the user enters n
             std::string newTitle;
             std::cout << std::endl;

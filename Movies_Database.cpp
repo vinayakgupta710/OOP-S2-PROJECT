@@ -93,7 +93,7 @@ bool Movies_database::addMovie(){
 
     // if movie exists in database throw error
     if(isMovieInDatabase(title)){
-        std::cout << "Error! Movie already in database!" << std::endl;
+        std::cout << "Error!"<< title << " is already in database!" << std::endl;
 
         // change this so that the program does not quit
         addedMovies = false;
@@ -206,7 +206,7 @@ Movies_database* Movies_database::fetchMovie(std::string title){
     // if movie is not in database, give the option to add it or search for new movie
     if(!isMovieInDatabase(title)){
         std::cout << std::endl;
-        std::cout << "Movie does not exist in the database." << std::endl;
+        std::cout << title << " does not exist in the database." << std::endl;
         std::cout << "Do you wish to add it in the database or would like to find another movie?" << std::endl;
         std::cout << "Type 'y' if you want to add it or 'n' if you would like to find another movie: "; 
         char addMovieOrContinue;

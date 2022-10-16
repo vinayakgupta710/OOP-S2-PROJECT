@@ -113,7 +113,7 @@ int main(){
             getline(std::cin, title);
 
             tempMovie = tempMovie->fetchMovie(title);
-            std::cout << "Title of the movie: " << tempMovie->getTitle() << std::endl;
+            std::cout << std::endl << "Title of the movie: " << tempMovie->getTitle() << std::endl;
             std::cout << "Release year of the movie: " << tempMovie->getReleaseYear() << std::endl;
             std::cout << "Rating of the movie (as per TMDb): " << tempMovie->getRating() << std::endl;
             std::cout << "Production stduio of the movie: " << tempMovie->getStudio() << std::endl;
@@ -168,7 +168,6 @@ int main(){
             return 0;
 
         } else if(userInput == "help"){
-            std::cout << "Invalid input!" << std::endl << std::endl;
             std::cout << "Please choose one of the following options: " << std::endl;
             std::cout << "Enter 'add' if you wanna add a movie to your favourites" << std::endl;
             std::cout << "Enter 'remove' if you wanna remove a movie from your favourites" << std::endl;

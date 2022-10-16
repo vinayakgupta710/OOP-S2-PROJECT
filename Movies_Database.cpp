@@ -4,6 +4,7 @@
 #include <sstream>
 #include <vector>
 #include "Movies_database.h"
+#include <ctype.h>
 
 // default constructor sets everything to 0/null
 Movies_database::Movies_database(){
@@ -51,7 +52,7 @@ bool Movies_database::isMovieInDatabase(std::string title){
     // capitalising the first letter of every word of the movie
     title[0] = toupper(title[0]);
     for(int i = 1; i < title.length(); i++){
-        if(title[i - 1] == ' ' || title[i - 1] == '-' || title[i - 1] == ':'){
+        if(!isalpha(title[i - 1])){
             title[i] = toupper(title[i]);
         } else {
             title[i] = tolower(title[i]);

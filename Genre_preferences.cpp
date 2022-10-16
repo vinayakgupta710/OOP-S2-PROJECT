@@ -64,9 +64,24 @@ void Genre_preferences::updateUserPreference(std::string username, std::string p
 }
 
 void Genre_preferences::calculatePreferenceScore(std::string title){
-    for(int i = 0; i < genreOccurences.size(); i++){
-            genresScore += genreOccurences.at(i);
+    Movies_database* movie_object = new Movies_database;
+
+    movie_object = movie_object->fetchMovie(title);
+    std::string* genreArr = movie_object->getGenreList();
+    int len = movie_object->getNumOfGenres();
+
+    for(int i = 0; i < genres.size(); i++){
+        for(int j = 0; j < len; j++){
+            if(genreArr[j] == genres.at(i)){
+                std::cout << genreArr[j] << " " << genres.at(i) << std::endl;
+                genresScore += genreOccurences.at(i);
+                break;
+            }
+        }
     }
+    delete movie_object;
+
+    genresScore += (genresScore/2);
 }
 
 int Genre_preferences::getScore(){ return genresScore; }

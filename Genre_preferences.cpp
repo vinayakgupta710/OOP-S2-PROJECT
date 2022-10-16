@@ -73,7 +73,6 @@ void Genre_preferences::calculatePreferenceScore(std::string title){
     for(int i = 0; i < genres.size(); i++){
         for(int j = 0; j < len; j++){
             if(genreArr[j] == genres.at(i)){
-                std::cout << genreArr[j] << " " << genres.at(i) << std::endl;
                 genresScore += genreOccurences.at(i);
                 break;
             }

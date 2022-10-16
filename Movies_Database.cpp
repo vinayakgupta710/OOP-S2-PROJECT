@@ -28,6 +28,7 @@ Movies_database::Movies_database(std::string title, int lenOfGenre, int year, st
     movieID = id;
 }
 
+// setter function
 void Movies_database::setDetails(std::string title, int lenOfGenre, int year, std::string* genres, std::string studio, float ratings, int id){
     titleOfMovie = title;
     releaseYear = year;
@@ -38,6 +39,7 @@ void Movies_database::setDetails(std::string title, int lenOfGenre, int year, st
     movieID = id;
 }
 
+// getter function
 int Movies_database::getId() { return movieID; } 
 std::string Movies_database::getTitle() { return titleOfMovie; } 
 int Movies_database::getReleaseYear() { return releaseYear; } 
@@ -50,6 +52,7 @@ float  Movies_database::getRating() {return ratingOfMovie; }
 bool Movies_database::isMovieInDatabase(std::string title){
 
     // capitalising the first letter of every word of the movie
+    // should not capitalise of and the kind of words
     title[0] = toupper(title[0]);
     for(int i = 1; i < title.length(); i++){
         if(!isalpha(title[i - 1])){
@@ -61,6 +64,7 @@ bool Movies_database::isMovieInDatabase(std::string title){
 
     // setting the bool value to false by default
     bool inDatabase = false;
+    // name of the file for the database
     const std::string filename = "final_cpp_dataset.csv";
 
     // reading the csv file
@@ -78,8 +82,11 @@ bool Movies_database::isMovieInDatabase(std::string title){
 
 // adding a movie to the database (csv file)
 bool Movies_database::addMovie(){
+    // name of the database
     const std::string filename = "final_cpp_dataset.csv";
+    // return value of the function set to true by default
     bool addedMovies = true;
+    // initialising variabeles
     int id = 0; 
     std::string title = ""; 
     int year = 0; 
@@ -125,11 +132,22 @@ bool Movies_database::addMovie(){
 
     for(int i = 0; i < numOfGenres; i++){
         std::string tempGenre = "";
-        std::cout << "Enter the genre of " << title << ": ";
+        std::cout << "Enter the genre of " << title << "(Enter science fiction as 'Science-Fiction'): ";
         std::cin >> tempGenre;
+        
+        // capitalising the first letter of the gerne 
+        tempGenre[0] = toupper(tempGenre[0]);
+        for(int i = 1; i < tempGenre.length(); i++){
+            if(!isalpha(tempGenre[i - 1])){
+                tempGenre[i] = toupper(tempGenre[i]);
+            } else {
+                tempGenre[i] = tolower(tempGenre[i]);
+            }
+        }
         genres[i] = tempGenre;
     }
 
+    // formatiing it to fit in the daatabase
     std::string genreForMovie;
     genreForMovie = "[";
     for(int i = 0; i < numOfGenres - 1; i++){
@@ -142,6 +160,15 @@ bool Movies_database::addMovie(){
     std::cin.ignore();
     std::cout << "Enter the studio that produced " << title << ": ";
     getline(std::cin, studio);
+    // capitalising the first letter of the studio for every word 
+    studio[0] = toupper(studio[0]);
+    for(int i = 1; i < studio.length(); i++){
+        if(!isalpha(studio[i - 1])){
+            studio[i] = toupper(studio[i]);
+        } else {
+            studio[i] = tolower(studio[i]);
+        }
+    }
 
     // getting the rating of the movie from the user
     std::cout << "Enter the rating for " << title << ": ";
@@ -158,6 +185,7 @@ bool Movies_database::addMovie(){
     // extracting the id from the database and settng the new entry to id+1
     std::ifstream movieDatabaseTemp(filename);
     std::string tempLine;
+    // this loop gets to the last line
     while(getline(movieDatabaseTemp, tempLine)){}
     // finding the first word from the tempLine
     std::string movieIdInStr;
@@ -173,7 +201,9 @@ bool Movies_database::addMovie(){
     }
     id = stoi(movieIdInStr);
     id = id + 1;
+    movieDatabaseTemp.close();
 
+    // adding the movie to the database
     std::ofstream movieDatabaseOut;
     movieDatabaseOut.open(filename, std::ios::app);
 
@@ -215,7 +245,7 @@ Movies_database* Movies_database::fetchMovie(std::string title){
         std::cin >> userTempInput;
         addMovieOrContinue = userTempInput[0];
         addMovieOrContinue = tolower(addMovieOrContinue);
-        
+        // calling until the user enters y or n
         while(addMovieOrContinue != 'y' && addMovieOrContinue != 'n'){
             std::cout << std::endl;
             std::cout << "Only y or n character is allowed: ";
@@ -223,12 +253,12 @@ Movies_database* Movies_database::fetchMovie(std::string title){
             addMovieOrContinue = userTempInput[0];
             addMovieOrContinue = tolower(addMovieOrContinue);
         }
-
+        // calling the add function if the user enters y
         if(addMovieOrContinue == 'y'){
             std::cin.ignore();
             std::cout << std::endl;
             addMovie();
-        } else {
+        } else { // calling the same funciton with a different title if the user enters n
             std::string newTitle;
             std::cout << std::endl;
             std::cout << "Enter the new title of the movie that you want to fetch information of: ";
@@ -288,13 +318,14 @@ Movies_database* Movies_database::fetchMovie(std::string title){
             tempGenre = new std::string[lenForTempGenre]; // creating a dynamic array of genres
             int iteratorForTempGenre = 0;
             while(movieDetailsArr[j] != "en"){
-
+                // getting each genre from the string
                 std::string genre = "";
                 for(int i = 0; i < movieDetailsArr[j].length(); i++){
                     if(movieDetailsArr[j][i] != '[' && movieDetailsArr[j][i] != ']' && movieDetailsArr[j][i] != ' ' && movieDetailsArr[j][i] != '"' && movieDetailsArr[j][i] != '\'' && movieDetailsArr[j][i] != ';'){
                         genre = genre + movieDetailsArr[j][i];
                     }
                 }
+                // to not get seg fault
                 if(iteratorForTempGenre < lenForTempGenre){
                     tempGenre[iteratorForTempGenre] = genre;
                     iteratorForTempGenre++;

@@ -3,6 +3,7 @@
 
 #include <string>
 
+// this class handles the functions related to movie database csv
 class Movies_database{
 private:
     int movieID; // unique ID for each movie

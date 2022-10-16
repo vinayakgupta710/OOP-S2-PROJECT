@@ -5,9 +5,12 @@
 
 int main(){
     Movies_database* movie = new Movies_database;
-    movie = movie->fetchMovie("Spider-Man: No Way Home");
+    std::string title;
+    std::cout << "enter: ";
+    getline(std::cin, title);
+    movie = movie->fetchMovie(title);
     std::string name = movie->getTitle();
-    std::cout << name << std::endl;
+    std::cout << "Inside main: " << name << std::endl;
 
     return 0;
 }

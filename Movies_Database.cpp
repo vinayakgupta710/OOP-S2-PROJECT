@@ -257,7 +257,8 @@ Movies_database* Movies_database::fetchMovie(std::string title){
             std::cout << "Enter the new title of the movie that you want to fetch information of: ";
             std::cin.ignore();
             getline(std::cin, newTitle);
-            fetchMovie(newTitle);
+            delete movieDetails;
+            return fetchMovie(newTitle);
         }
     }
 
@@ -344,7 +345,6 @@ Movies_database* Movies_database::fetchMovie(std::string title){
 
             // creating a dynamic Movies object
             movieDetails->setDetails(titleTemp, lenForTempGenre, yearTemp, tempGenre, studioTemp, ratingTemp, tempId);
-            
         }
     }
     movieDatabase.close();

@@ -51,13 +51,9 @@ float  Movies_database::getRating() {return ratingOfMovie; }
 // checking if a movie is in a database
 bool Movies_database::isMovieInDatabase(std::string title){
 
-    // capitalising the first letter of every word of the movie
-    // should not capitalise of and the kind of words
-    title[0] = toupper(title[0]);
-    for(int i = 1; i < title.length(); i++){
-        if(!isalpha(title[i - 1])){
-            title[i] = toupper(title[i]);
-        } else {
+    // lowercase the whole title
+    for(int i = 0; i < title.length(); i++){
+        if(isalpha(title[i])){
             title[i] = tolower(title[i]);
         }
     }
@@ -160,12 +156,9 @@ bool Movies_database::addMovie(){
     std::cin.ignore();
     std::cout << "Enter the studio that produced " << title << ": ";
     getline(std::cin, studio);
-    // capitalising the first letter of the studio for every word 
-    studio[0] = toupper(studio[0]);
-    for(int i = 1; i < studio.length(); i++){
-        if(!isalpha(studio[i - 1])){
-            studio[i] = toupper(studio[i]);
-        } else {
+    // lowering the first letter of the studio for every word 
+    for(int i = 0; i < studio.length(); i++){
+        if(isalpha(studio[i])){
             studio[i] = tolower(studio[i]);
         }
     }
@@ -270,11 +263,8 @@ Movies_database* Movies_database::fetchMovie(std::string title){
 
     // if movie is in database make a new Movie object and store its information
     // capitalising the first letter of every word of the movie
-    title[0] = toupper(title[0]);
-    for(int i = 1; i < title.length(); i++){
-        if(!isalpha(title[i - 1])){
-            title[i] = toupper(title[i]);
-        } else {
+    for(int i = 0; i < title.length(); i++){
+        if(isalpha(title[i])){
             title[i] = tolower(title[i]);
         }
     }

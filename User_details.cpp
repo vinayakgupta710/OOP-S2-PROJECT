@@ -197,6 +197,7 @@ bool User_details::checkCredentials(std::string testUserName, std::string testPa
     if(testUserName == username && testPassword == password){
         username = testUserName;
         password = testPassword;
+        loggedIn = true;
     }
 
     return loggedIn;

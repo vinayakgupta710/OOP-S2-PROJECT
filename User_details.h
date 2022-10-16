@@ -6,7 +6,7 @@
 
 class User_details{
 protected:
-    std::string password;
+    std::string password; // password of the user
     std::string username; // username of the user (unique)
     int userID; // user id of the user (unique)
 public:

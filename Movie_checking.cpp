@@ -16,6 +16,43 @@ Movie_checking::Movie_checking(){
 
 int Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user){
     int finalScore = 0;
+    Movies_database* tempMovie = new Movies_database;
+
+    if(!tempMovie->isMovieInDatabase(title)){
+        std::cout << std::endl;
+        std::cout << title << " does not exist in the database." << std::endl;
+        std::cout << "Do you wish to add it in the database or would like to find another movie?" << std::endl;
+        std::cout << "Type 'y' if you want to add it or 'n' if you would like to find another movie: "; 
+        char addMovieOrContinue;
+        std::string userTempInput;
+        std::cin >> userTempInput;
+        addMovieOrContinue = userTempInput[0];
+        addMovieOrContinue = tolower(addMovieOrContinue);
+        // calling until the user enters y or n
+        while(addMovieOrContinue != 'y' && addMovieOrContinue != 'n'){
+            std::cout << std::endl;
+            std::cout << "Only y or n character is allowed: ";
+            std::cin >> userTempInput;
+            addMovieOrContinue = userTempInput[0];
+            addMovieOrContinue = tolower(addMovieOrContinue);
+        }
+        // calling the add function if the user enters y
+        if(addMovieOrContinue == 'y'){
+            std::cin.ignore();
+            std::cout << std::endl;
+            tempMovie->addMovie();
+        } else { // calling the same funciton with a different title if the user enters n
+            std::string newTitle;
+            std::cout << std::endl;
+            std::cout << "Enter the new title of the movie that you want to fetch information of: ";
+            std::cin.ignore();
+            getline(std::cin, newTitle);
+            title = newTitle;
+        }
+    }
+
+    delete tempMovie;
+
     user.getFavMovies(username);
     user.Genre_preferences::updateUserPreference(username, password);
     user.Genre_preferences::calculatePreferenceScore(title);

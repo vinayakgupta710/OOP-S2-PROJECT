@@ -95,6 +95,12 @@ bool Movies_database::addMovie(){
     std::cout << "Enter the title of the movie you wish to add to the database: "; 
     getline(std::cin, title);
 
+    for(int i = 0; i < title.length(); i++){
+        if(isalpha(title[i])){
+            title[i] = islower(title[i]);
+        }
+    }
+
     // if movie exists in database throw error
     if(isMovieInDatabase(title)){
         std::cout << "Error!"<< title << " is already in database!" << std::endl;

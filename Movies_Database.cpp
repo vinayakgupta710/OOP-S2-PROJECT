@@ -5,6 +5,7 @@
 #include <vector>
 #include "Movies_database.h"
 #include <ctype.h>
+#include <cmath>
 
 // default constructor sets everything to 0/null
 Movies_database::Movies_database(){
@@ -94,12 +95,8 @@ bool Movies_database::addMovie(){
     // getting the title of the movie from the user
     std::cout << "Enter the title of the movie you wish to add to the database: "; 
     getline(std::cin, title);
-
-    for(int i = 0; i < title.length(); i++){
-        if(isalpha(title[i])){
-            title[i] = islower(title[i]);
-        }
-    }
+    
+    std::transform(title.begin(), title.end(), title.begin(), ::tolower);
 
     // if movie exists in database throw error
     if(isMovieInDatabase(title)){
@@ -111,31 +108,66 @@ bool Movies_database::addMovie(){
     }
 
     // getting the release year of the movie from the user
+    std::string tempYear;
     std::cout << "Enter the release year for " << title << ": ";
-    std::cin >> year;
+    std::cin >> tempYear;
+
+    try{
+        year = stoi(tempYear);
+    } catch(...){
+        std::cout << "Please enter year in 'YYYY' format" << std::endl;
+    }
+
     while(year <= 1920 || year > 2023){
         std::cout << "Error! Invalid year!" << std::endl;
         std::cout << "Try again!" << std::endl;
         std::cout << "Enter the release year for " << title << ": ";
-        std::cin >> year;
+        std::cin >> tempYear;
+        try{
+            year = stoi(tempYear);
+        } catch(...){
+            std::cout << "Please enter year in 'YYYY' format" << std::endl;
+        }
     }
 
     // getting the genres of the movie from the user
+    std::string tempNumOfGenres;
     std::cout << "How many genres do you wish to add for " << title << ": ";
-    std::cin >> numOfGenres;
+    std::cin >> tempNumOfGenres;
+
+    try{
+        numOfGenres = stoi(tempNumOfGenres);
+    } catch(...){
+        std::cout << "Please enter the number of genres as digits" << std::endl;
+    }
+
     // checking if the number of genres is invalid
-    while(numOfGenres <= 0 || numOfGenres > 18){
+    while(numOfGenres < 0 || numOfGenres >= 18){
         std::cout << "Error! Invalid number of genres!" << std::endl;
         std::cout << "Try again!" << std::endl;
+        std::cout << "Allowed range is 1 to 18" << std::endl;
         std::cout << "How many genres do you wish to add for " << title << ": ";
-        std::cin >> numOfGenres;
+        std::cin >> tempNumOfGenres;
+        
+        try{
+            numOfGenres = stoi(tempNumOfGenres);
+        } catch(...){
+            std::cout << "Please enter the number of genres as digits" << std::endl;
+        }
     }
     genres = new std::string[numOfGenres];
 
     for(int i = 0; i < numOfGenres; i++){
         std::string tempGenre = "";
-        std::cout << "Enter the genre of " << title << "(Enter science fiction as 'Science-Fiction'): ";
+        std::cout << "Enter the genre of " << title << ": ";
         std::cin >> tempGenre;
+        // getline(std::cin, tempGenre);
+        // if(i != numOfGenres - 1){
+        //     std::cin.ignore();
+        // }
+        // if(tempGenre == "Sci-fi" || tempGenre == "sci-fi" || tempGenre == "science fiction" || tempGenre == "Science fiction"){
+        //     tempGenre = "Science-Fiction";
+        // }
         
         // capitalising the first letter of the gerne 
         tempGenre[0] = toupper(tempGenre[0]);
@@ -159,8 +191,8 @@ bool Movies_database::addMovie(){
     delete[] genres;
 
     // getting the production studio of the movie from the user
-    std::cin.ignore();
     std::cout << "Enter the studio that produced " << title << ": ";
+    std::cin.ignore();
     getline(std::cin, studio);
     // lowering the first letter of the studio for every word 
     for(int i = 0; i < studio.length(); i++){
@@ -170,15 +202,31 @@ bool Movies_database::addMovie(){
     }
 
     // getting the rating of the movie from the user
+    std::string tempRating;
     std::cout << "Enter the rating for " << title << ": ";
-    std::cin >> rating;
-    // checking if the number of genres is invalid
+    std::cin >> tempRating;
+
+    try{
+        rating = std::stof(tempRating);
+    } catch(...){
+        rating = -1;
+        std::cout << "Please enter the rating as decimal num" << std::endl;
+    }
+
+    // checking if the rating is invalid
     while(rating < 0 || rating > 10){
         std::cout << "Error! Invalid rating!" << std::endl;
         std::cout << "Allowed range: 0 to 10." << std::endl;
         std::cout << "Try again!" << std::endl;
         std::cout << "Enter the rating for " << title << ": ";
-        std::cin >> rating;
+        std::cin >> tempRating;
+
+        try{
+            rating = stof(tempRating);
+        } catch(...){
+            rating = -1;
+            std::cout << "Please enter the rating as decimal num" << std::endl;
+        }
     }
 
     // extracting the id from the database and settng the new entry to id+1
@@ -187,7 +235,7 @@ bool Movies_database::addMovie(){
     // this loop gets to the last line
     while(getline(movieDatabaseTemp, tempLine)){}
     // finding the first word from the tempLine
-    std::string movieIdInStr;
+    std::string movieIdInStr = "";
     int commaIndexInMovie = 0;
     for(int i = 0; i < tempLine.length(); i++){
         if(tempLine[i] == ','){
@@ -195,9 +243,11 @@ bool Movies_database::addMovie(){
             break;
         }
     }
+
     for(int i = 0; i < commaIndexInMovie; i++){
         movieIdInStr = movieIdInStr + tempLine[i];
     }
+    std::cout << movieIdInStr << std::endl;
     id = stoi(movieIdInStr);
     id = id + 1;
     movieDatabaseTemp.close();

@@ -211,25 +211,6 @@ bool Movies_database::addMovie(){
     return addedMovies;
 }
 
-// checking if a movie is in a database
-bool Movies_database::isMovieInDatabase(int id){
-    // setting the bool value to false by default
-    bool inDatabase = false;
-    const std::string filename = "final_cpp_dataset.csv";
-
-    // reading the csv file
-    std::ifstream movieDatabase(filename);
-    // reading the file line by line and changing the bool value to true if the movie exists in the database
-    for(std::string line; getline(movieDatabase, line); ){
-        // using find() function to check if the title is present in the row of the csv
-        if(line.find(id) != std::string::npos){
-            inDatabase = true;
-        }
-    }
-
-    return inDatabase;
-}
-
 Movies_database* Movies_database::fetchMovie(std::string title){
     const std::string filename = "final_cpp_dataset.csv";
     Movies_database* movieDetails = new Movies_database;

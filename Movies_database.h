@@ -24,8 +24,6 @@ public:
     bool addMovie();
     // checks if the title of the movie is a valid title in the database
     bool isMovieInDatabase(std::string title);
-    // checks if the ID of the movie is a valid ID in the database
-    bool isMovieInDatabase(int ID);
     // fetches the details of the movie existing in the database and returns new Movies_Database object
     // would be a instantiated on the heap
     Movies_database* fetchMovie(std::string title);

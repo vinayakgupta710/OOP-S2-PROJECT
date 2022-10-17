@@ -138,12 +138,13 @@ int main(){
             std::cout << "Enter the title of the movie that you wish to check whether its worth watching: ";
             std::cin.ignore();
             getline(std::cin, title);
-            int score = user.checkMovieWorthWatching(title, username, password, user);
+            std::pair<int, std::string> pairOfMovie = user.checkMovieWorthWatching(title, username, password, user);
+            int score = pairOfMovie.first;
             bool movieWatch = user.movieWorthy(score);
             if(movieWatch == true){
-                std::cout << "You should watch " << title << std::endl;
+                std::cout << "You should watch " << pairOfMovie.second << std::endl;
             } else {
-                std::cout << "You should not watch " << title << std::endl;
+                std::cout << "You should not watch " << pairOfMovie.second << std::endl;
             }
             std::cout << std::endl;
             std::cout << "Choose from the options again (type 'help' to view the options): ";

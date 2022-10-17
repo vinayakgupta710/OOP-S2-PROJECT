@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <string>
+#include <map>
 #include "User_preferences.h"
 #include "User_details.h"
 #include "Movies_database.h"
@@ -17,7 +18,7 @@ private:
     int movie2Score;
 public:
     Movie_checking(); // default constructor
-    int checkMovieWorthWatching(std::string, std::string, std::string, Movie_checking); // checks if the movie is worth watching
+    std::pair<int, std::string> checkMovieWorthWatching(std::string, std::string, std::string, Movie_checking); // checks if the movie is worth watching
     bool movieWorthy(int score); // checks if movie is worth watching by comparing the score
     void compareMovies(std::string title1, std::string title2, std::string, std::string, Movie_checking); 
 };

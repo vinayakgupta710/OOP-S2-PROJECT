@@ -68,6 +68,8 @@
         "fstream": "cpp",
         "iomanip": "cpp",
         "iostream": "cpp",
-        "stack": "cpp"
+        "stack": "cpp",
+        "__tree": "cpp",
+        "map": "cpp"
     }
 }

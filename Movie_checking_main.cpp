@@ -19,7 +19,7 @@ int main(){
     std::string title2 = "Interstellar";
     std::string title = "Inception";
     
-    bool worthy = user1.movieWorthy(user1.checkMovieWorthWatching(title2, username, password, user1));
+    bool worthy = user1.movieWorthy(user1.checkMovieWorthWatching(title2, username, password, user1).first);
     if(worthy == true){
         std::cout << "You can watch " + title2 << std::endl;
     }

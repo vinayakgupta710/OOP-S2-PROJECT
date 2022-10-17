@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <map>
 #include "Movie_checking.h"
 #include "User_preferences.h"
 #include "User_details.h"
@@ -14,10 +15,10 @@ Movie_checking::Movie_checking(){
     movie2Score = 0;
 }
 
-int Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user){
+std::pair<int, std::string> Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user){
     int finalScore = 0;
+    // changing the title to new title if it does not exist
     Movies_database* tempMovie = new Movies_database;
-
     if(!tempMovie->isMovieInDatabase(title)){
         std::cout << std::endl;
         std::cout << title << " does not exist in the database." << std::endl;
@@ -50,7 +51,6 @@ int Movie_checking::checkMovieWorthWatching(std::string title, std::string usern
             title = newTitle;
         }
     }
-
     delete tempMovie;
 
     user.getFavMovies(username);
@@ -77,7 +77,11 @@ int Movie_checking::checkMovieWorthWatching(std::string title, std::string usern
     int studioScore = user.Studio_preferences::getScore();
     finalScore += studioScore;
 
-    return finalScore;
+    std::pair<int, std::string> movieScoreAndTitle;
+    movieScoreAndTitle.first = finalScore;
+    movieScoreAndTitle.second = title;
+
+    return movieScoreAndTitle;
 }
 
 bool Movie_checking::movieWorthy(int score){
@@ -88,13 +92,16 @@ bool Movie_checking::movieWorthy(int score){
 }
 
 void Movie_checking::compareMovies(std::string title1, std::string title2, std::string username, std::string password, Movie_checking user){
-    int score1 = checkMovieWorthWatching(title1, username, password, user);
-    int score2 = checkMovieWorthWatching(title2, username, password, user);
+    // int score1 = checkMovieWorthWatching(title1, username, password, user);
+    // int score2 = checkMovieWorthWatching(title2, username, password, user);
 
-    if(score1 > score2){
-        std::cout << "You should watch " + title1 << std::endl;
-    } else if(score2 > score1){
-        std::cout << "You should watch " + title2 << std::endl;
+    std::pair<int, std::string> movie1 = checkMovieWorthWatching(title1, username, password, user);
+    std::pair<int, std::string> movie2 = checkMovieWorthWatching(title2, username, password, user);
+
+    if(movie1.first > movie2.first){
+        std::cout << "You should watch " + movie1.second << std::endl;
+    } else if(movie1.first < movie2.first){
+        std::cout << "You should watch " + movie2.second << std::endl;
     } else {
         std::cout << "You can watch either of the movie" << std::endl;
     }

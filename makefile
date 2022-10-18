@@ -1,7 +1,7 @@
 testinput02: main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o
 	g++ main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o -o testingInput2
 	./testingInput2 < testinput02.txt > testoutput02.txt
-	diff correctinput02.txt testoutput02.txt
+	diff correctoutput02.txt testoutput02.txt
 
 testinput01: main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o
 	g++ main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o -o testingInput1

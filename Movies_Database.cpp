@@ -180,11 +180,11 @@ bool Movies_database::addMovie() {
 
   // formatiing it to fit in the daatabase
   std::string genreForMovie;
-  genreForMovie = "[";
+  genreForMovie = "['";
   for (int i = 0; i < numOfGenres - 1; i++) {
-    genreForMovie = genreForMovie + genres[i] + "; ";
+    genreForMovie = genreForMovie + genres[i] + "'; ";
   }
-  genreForMovie = genreForMovie + genres[numOfGenres - 1] + "]";
+  genreForMovie = genreForMovie + "'" + genres[numOfGenres - 1] + "']";
   delete[] genres;
 
   // getting the production studio of the movie from the user

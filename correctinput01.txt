@@ -1,0 +1,49 @@
+-------------------------------------------------------------------------------------
+--------------------------------------|MOVIE RECOMMENDER|----------------------------
+-------------------------------------------------------------------------------------
+
+Enter 'login' if you are an existing user or enter 'signin' if you are a new user:
+Enter 'logout' if you wanna logout of the system: 
+Please enter your username: Please enter your password: Checking credentials... 
+Successfully logged in for vinayak 
+
+The list of vinayak's favourite movies includes: Spider-man: no way home, Zootopia, The dark knight
+
+Please choose one of the following options: 
+Enter 'info' to display the information about the movie
+Enter 'add' if you wanna add a movie to your favourites
+Enter 'remove' if you wanna remove a movie from your favourites
+Enter 'print' to print your list of favourite movies
+Enter 'compare' if you wanna compare two movies and check which one is better to watch
+Enter 'check' if you wanna check if a movie is worth watching
+Enter 'logout' if you wanna log out of the system
+Enter 'help' to display these options again
+Enter input here: 
+Enter the title of the movie that you wanna find info about: 
+Title of the movie: avengers: endgame
+Release year of the movie: 2019
+Rating of the movie (as per TMDb): 8.3
+Production stduio of the movie: Marvel Studios
+Genres of the movie: Adventure, ScienceFiction, Action
+
+Choose from the options again (type 'help' to view the options): Please choose one of the following options: 
+Enter 'add' if you wanna add a movie to your favourites
+Enter 'remove' if you wanna remove a movie from your favourites
+Enter 'print' to print your list of favourite movies
+Enter 'check' if you wanna check if a movie is worth watching
+Enter 'compare' if you wanna compare two movies and check which one is better to watch
+Enter 'logout' if you wanna log out of the system
+Enter 'help' to display these options again
+Enter input here: 
+Enter the title for the first movie: Enter the title for the second movie: You should watch inception
+
+Choose from the options again (type 'help' to view the options): 
+The list of vinayak's favourite movies includes: Spider-man: no way home, Zootopia, The dark knight
+
+Choose from the options again (type 'help' to view the options): 
+Enter the title of the movie that you wanna remove from your favourites: The list of vinayak's favourite movies includes: Spider-man: no way home, Zootopia
+
+Choose from the options again (type 'help' to view the options): 
+Enter the title of the movie that you wanna add to your favourites: The list of vinayak's favourite movies includes: Spider-man: no way home, Zootopia, The dark knight rises
+
+Choose from the options again (type 'help' to view the options): Logged out for vinayak

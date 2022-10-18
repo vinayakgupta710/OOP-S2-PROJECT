@@ -1,3 +1,13 @@
+testinput02: main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o
+	g++ main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o -o testingInput2
+	./testingInput2 < testinput02.txt > testoutput02.txt
+	diff correctinput01.txt testoutput01.txt
+
+testinput01: main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o
+	g++ main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o -o testingInput1
+	./testingInput1 < testinput01.txt > testoutput01.txt
+	diff correctinput01.txt testoutput01.txt
+
 output: main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o
 	g++ main.o Movie_checking.o Genre_preferences.o Studio_preferences.o Ratings_preferences.o Release_year_preferences.o User_preferences.o User_details.o Movies_Database.o -o makefileMain
 	clear

@@ -180,11 +180,11 @@ bool Movies_database::addMovie() {
 
   // formatiing it to fit in the daatabase
   std::string genreForMovie;
-  genreForMovie = "['";
+  genreForMovie = "\"['";
   for (int i = 0; i < numOfGenres - 1; i++) {
-    genreForMovie = genreForMovie + genres[i] + "'; ";
+    genreForMovie = genreForMovie + genres[i] + "', ";
   }
-  genreForMovie = genreForMovie + "'" + genres[numOfGenres - 1] + "']";
+  genreForMovie = genreForMovie + "'" + genres[numOfGenres - 1] + "']\"";
   delete[] genres;
 
   // getting the production studio of the movie from the user
@@ -354,19 +354,17 @@ Movies_database* Movies_database::fetchMovie(std::string title) {
       while (movieDetailsArr[lenForTempGenre] != "en") {
         lenForTempGenre++;
       }
-      lenForTempGenre =
-          lenForTempGenre -
-          1;  // removing the 1 as it was initialised as 1 instead of 0
-      tempGenre = new std::string[lenForTempGenre];  // creating a dynamic array
-                                                     // of genres
+      lenForTempGenre = lenForTempGenre - 1;  // removing the 1 as it was initialised as 1 instead of 0
+      tempGenre = new std::string[lenForTempGenre];  // creating a dynamic array of genres
       int iteratorForTempGenre = 0;
+      
       while (movieDetailsArr[j] != "en") {
         // getting each genre from the string
         std::string genre = "";
         for (int i = 0; i < movieDetailsArr[j].length(); i++) {
           if (movieDetailsArr[j][i] != '[' && movieDetailsArr[j][i] != ']' &&
               movieDetailsArr[j][i] != ' ' && movieDetailsArr[j][i] != '"' &&
-              movieDetailsArr[j][i] != '\'' && movieDetailsArr[j][i] != ';') {
+              movieDetailsArr[j][i] != '\'') {
             genre = genre + movieDetailsArr[j][i];
           }
         }

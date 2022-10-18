@@ -111,13 +111,13 @@ bool Movies_database::addMovie(){
     std::string tempYear;
     std::cout << "Enter the release year for " << title << ": ";
     std::cin >> tempYear;
-
+    // if the user enters wrong input throw errror
     try{
         year = stoi(tempYear);
     } catch(...){
         std::cout << "Please enter year in 'YYYY' format" << std::endl;
     }
-
+    // only allow input between 1920 and 2023
     while(year <= 1920 || year > 2023){
         std::cout << "Error! Invalid year!" << std::endl;
         std::cout << "Try again!" << std::endl;
@@ -135,6 +135,7 @@ bool Movies_database::addMovie(){
     std::cout << "How many genres do you wish to add for " << title << ": ";
     std::cin >> tempNumOfGenres;
 
+    // if the user enters wrong input throw errror
     try{
         numOfGenres = stoi(tempNumOfGenres);
     } catch(...){
@@ -159,15 +160,9 @@ bool Movies_database::addMovie(){
 
     for(int i = 0; i < numOfGenres; i++){
         std::string tempGenre = "";
+        std::cout << "Enter science-fiction as ScienceFiction" << std::endl;
         std::cout << "Enter the genre of " << title << ": ";
         std::cin >> tempGenre;
-        // getline(std::cin, tempGenre);
-        // if(i != numOfGenres - 1){
-        //     std::cin.ignore();
-        // }
-        // if(tempGenre == "Sci-fi" || tempGenre == "sci-fi" || tempGenre == "science fiction" || tempGenre == "Science fiction"){
-        //     tempGenre = "Science-Fiction";
-        // }
         
         // capitalising the first letter of the gerne 
         tempGenre[0] = toupper(tempGenre[0]);
@@ -206,6 +201,7 @@ bool Movies_database::addMovie(){
     std::cout << "Enter the rating for " << title << ": ";
     std::cin >> tempRating;
 
+    // if the user enters wrong input throw errror
     try{
         rating = std::stof(tempRating);
     } catch(...){
@@ -243,7 +239,7 @@ bool Movies_database::addMovie(){
             break;
         }
     }
-
+    // getting the id of the user
     for(int i = 0; i < commaIndexInMovie; i++){
         movieIdInStr = movieIdInStr + tempLine[i];
     }

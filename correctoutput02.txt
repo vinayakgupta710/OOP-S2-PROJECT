@@ -37,11 +37,6 @@ Production stduio of the movie: raj film studios
 Genres of the movie: DramaComedyRomance
 
 Choose from the options again (type 'help' to view the options): 
-Enter the title of the movie that you wanna find info about: 
-Title of the movie: the hunger games: mockingjay - part 2
-Release year of the movie: 2015
-Rating of the movie (as per TMDb): 6.9
-Production stduio of the movie: Studio Babelsberg
-Genres of the movie: Action, Adventure, ScienceFiction
+Enter the title for the first movie: Enter the title for the second movie: You should watch the hunger games
 
 Choose from the options again (type 'help' to view the options): Logged out for testingOutput

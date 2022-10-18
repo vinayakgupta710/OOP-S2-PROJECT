@@ -17,6 +17,7 @@ comedy
 romance
 raj film studios
 7.6
-info
+compare
 the hunger games
+zindagi na milegi dobara
 logout

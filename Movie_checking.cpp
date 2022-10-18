@@ -17,9 +17,7 @@ Movie_checking::Movie_checking() {
 }
 
 // checks if a movie is worth watching and returns the score and the title of the movie
-std::pair<int, std::string> Movie_checking::checkMovieWorthWatching(
-    std::string title, std::string username, std::string password,
-    Movie_checking user) {
+std::pair<int, std::string> Movie_checking::checkMovieWorthWatching(std::string title, std::string username, std::string password, Movie_checking user) {
 
   int finalScore = 0;
   // changing the title to new title if it does not exist
@@ -107,9 +105,7 @@ bool Movie_checking::movieWorthy(int score) {
 }
 
 // compares two movies
-void Movie_checking::compareMovies(std::string title1, std::string title2,
-                                   std::string username, std::string password,
-                                   Movie_checking user) {
+void Movie_checking::compareMovies(std::string title1, std::string title2, std::string username, std::string password, Movie_checking user) {
   // calling check func and prints the movie that the user should watch
   std::pair<int, std::string> movie1 =
       checkMovieWorthWatching(title1, username, password, user);

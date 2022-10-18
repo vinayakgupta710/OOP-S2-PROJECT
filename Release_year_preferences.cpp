@@ -17,8 +17,7 @@ Release_year_preferences::Release_year_preferences() {
   releaseYearScore = 0;
 }
 
-void Release_year_preferences::updateUserPreference(std::string username,
-                                                    std::string password) {
+void Release_year_preferences::updateUserPreference(std::string username, std::string password) {
   releaseYearScore = 0;
   Release_year_preferences* tempReleaseYear = new Release_year_preferences;
   tempReleaseYear->checkCredentials(username, password);

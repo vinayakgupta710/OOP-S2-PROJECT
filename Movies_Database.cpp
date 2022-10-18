@@ -21,9 +21,7 @@ Movies_database::Movies_database() {
 }
 
 // parametric constructor to change the values of private data members
-Movies_database::Movies_database(std::string title, int lenOfGenre, int year,
-                                 std::string* genres, std::string studio,
-                                 float ratings, int id) {
+Movies_database::Movies_database(std::string title, int lenOfGenre, int year, std::string* genres, std::string studio, float ratings, int id) {
   titleOfMovie = title;
   releaseYear = year;
   numOfGenres = lenOfGenre;
@@ -34,9 +32,7 @@ Movies_database::Movies_database(std::string title, int lenOfGenre, int year,
 }
 
 // setter function
-void Movies_database::setDetails(std::string title, int lenOfGenre, int year,
-                                 std::string* genres, std::string studio,
-                                 float ratings, int id) {
+void Movies_database::setDetails(std::string title, int lenOfGenre, int year, std::string* genres, std::string studio, float ratings, int id) {
   titleOfMovie = title;
   releaseYear = year;
   numOfGenres = lenOfGenre;

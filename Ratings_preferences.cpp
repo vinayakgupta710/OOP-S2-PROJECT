@@ -17,8 +17,7 @@ Ratings_preferences::Ratings_preferences() {
   ratingsScore = 0;
 }
 
-void Ratings_preferences::updateUserPreference(std::string username,
-                                               std::string password) {
+void Ratings_preferences::updateUserPreference(std::string username, std::string password) {
   ratingsScore = 0;
   Ratings_preferences* tempRatings = new Ratings_preferences;
   tempRatings->checkCredentials(username, password);

@@ -18,13 +18,9 @@ class Movies_database {
   Movies_database();
   // Used as a setter function in the fetch details function of the
   // Movies_Database class
-  Movies_database(std::string title, int lenOfGenre, int year,
-                  std::string* genres, std::string studio, float ratings,
-                  int id);
+  Movies_database(std::string title, int lenOfGenre, int year, std::string* genres, std::string studio, float ratings, int id);
   // sets the details of the movie
-  void setDetails(std::string title, int lenOfGenre, int year,
-                  std::string* genres, std::string studio, float ratings,
-                  int id);
+  void setDetails(std::string title, int lenOfGenre, int year, std::string* genres, std::string studio, float ratings, int id);
   // Adds a movie to the database and returns true if its successful
   bool addMovie();
   // checks if the title of the movie is a valid title in the database

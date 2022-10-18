@@ -35,8 +35,7 @@ Genre_preferences::Genre_preferences() {
   genresScore = 0;
 }
 
-void Genre_preferences::updateUserPreference(std::string username,
-                                             std::string password) {
+void Genre_preferences::updateUserPreference(std::string username, std::string password) {
   genresScore = 0;
   // calling check credentials to get fav movie list
   Genre_preferences* tempGenre = new Genre_preferences;

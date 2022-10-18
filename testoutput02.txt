@@ -34,9 +34,9 @@ Title of the movie: zindagi na milegi dobara
 Release year of the movie: 2011
 Rating of the movie (as per TMDb): 7.6
 Production stduio of the movie: raj film studios
-Genres of the movie: DramaComedyRomance
+Genres of the movie: Drama, Comedy, Romance
 
 Choose from the options again (type 'help' to view the options): 
-Enter the title for the first movie: Enter the title for the second movie: You should watch the hunger games
+Enter the title for the first movie: Enter the title for the second movie: You should watch zindagi na milegi dobara
 
 Choose from the options again (type 'help' to view the options): Logged out for testingOutput

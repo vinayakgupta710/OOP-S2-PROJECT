@@ -13,6 +13,7 @@
 
 User_preferences::User_preferences(){}
 
+
 void User_preferences::addMovieToFav(std::string title){
     std::string existingFavMovies;
     std::string userDetailedLine;
@@ -41,7 +42,7 @@ void User_preferences::addMovieToFav(std::string title){
         
     std::stringstream userDetailedLineInParts(userDetailedLine);
     std::string separatedLine;
-    
+    // getting the fav movie list
     while(std::getline(userDetailedLineInParts, separatedLine, ';')){
         std::string tempMovieName = separatedLine;
         
@@ -52,12 +53,13 @@ void User_preferences::addMovieToFav(std::string title){
         for(int i = 0; i < title.length(); i++){
             title[i] = tolower(title[i]);
         }
-        
+        // exit func if movie exists in fav
         if(tempMovieName == title){
             std::cout << "Movie already exists in favourites!" << std::endl;
             return;
         }
     }
+
 
     std::ifstream userDatabaseIn;
     userDatabaseIn.open(filename);
@@ -93,7 +95,7 @@ void User_preferences::addMovieToFav(std::string title){
             i++;
         }
     }
-    
+    // storing the info in a  str to enter in the file
     std::string userDetailsInStr = userDetailsArr[0];
 
     for(int i = 1; i < 3; i++){
@@ -113,7 +115,7 @@ void User_preferences::addMovieToFav(std::string title){
         }
     }
     delete[] userDetailsArr;
-
+    // converting filename to char*
     int lenOfFilename = filename.length();
     char* TempFilename = new char[lenOfFilename];
     for(int i = 0; i < lenOfFilename; i++){
@@ -125,7 +127,7 @@ void User_preferences::addMovieToFav(std::string title){
         newTempFilename[i] = TempFilename[i];
     }
     delete[] TempFilename;
-
+    // deleting the file and creating it again
     int status = remove(newTempFilename);
 
     std::ofstream userDatabaseOut;

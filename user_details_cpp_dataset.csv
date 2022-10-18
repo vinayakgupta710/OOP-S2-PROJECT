@@ -2,6 +2,7 @@ id,username,password,favouriteMovies
 0,trial,dummy,the dark knight;avengers: endgame;the hunger games
 1,trial2,dummy2,the dark knight rises;avengers: endgame;the hunger games
 2,testUsername,testPassword,shutter island;interstellar;avengers: endgame
-3,vinayak,7.10,spider-man: no way home;the dark knight;zootopia
+3,vinayak,7.10,spider-man: no way home;zootopia;the dark knight rises
 4,dhakshith,1234,spider-man: no way home;iron man;aquaman
 5,vg,1234,avengers: endgame;hangover;2 fast 2 furious
+6,testingOutput,test,the godfather;the hangover;minions

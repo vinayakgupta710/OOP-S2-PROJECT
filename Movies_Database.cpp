@@ -163,7 +163,6 @@ bool Movies_database::addMovie() {
 
   for (int i = 0; i < numOfGenres; i++) {
     std::string tempGenre = "";
-    std::cout << "Enter science-fiction as ScienceFiction" << std::endl;
     std::cout << "Enter the genre of " << title << ": ";
     std::cin >> tempGenre;
 
@@ -247,7 +246,6 @@ bool Movies_database::addMovie() {
   for (int i = 0; i < commaIndexInMovie; i++) {
     movieIdInStr = movieIdInStr + tempLine[i];
   }
-  std::cout << movieIdInStr << std::endl;
   id = stoi(movieIdInStr);
   id = id + 1;
   movieDatabaseTemp.close();

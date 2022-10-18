@@ -1,0 +1,15 @@
+login
+vinayak
+7.10
+info
+avengers: endgame
+help
+compare
+interstellar
+inception
+print
+remove
+the dark knight
+add
+the dark knight rises
+logout
